@@ -18,6 +18,8 @@
 		ED1BC0FD24E1BE2A00426EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1BC0FB24E1BE2A00426EB8 /* LaunchScreen.storyboard */; };
 		ED1BC10A24E1C4EE00426EB8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1BC10924E1C4EE00426EB8 /* FavoriteViewController.swift */; };
 		ED1BC10C24E1C4FF00426EB8 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1BC10B24E1C4FF00426EB8 /* PopularViewController.swift */; };
+		ED1DA75624ED5F80000BFC25 /* SpokenLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1DA75524ED5F80000BFC25 /* SpokenLanguages.swift */; };
+		ED1DA75A24ED6E1A000BFC25 /* MovieTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1DA75924ED6E1A000BFC25 /* MovieTextViewController.swift */; };
 		ED21F8C124E2D7BB00FA1692 /* network.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F8C024E2D7BB00FA1692 /* network.swift */; };
 		ED21F8C524E2E42200FA1692 /* PopularMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F8C424E2E42200FA1692 /* PopularMovie.swift */; };
 		ED21F8C724E2E44200FA1692 /* PopularMovieResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F8C624E2E44200FA1692 /* PopularMovieResults.swift */; };
@@ -45,6 +47,8 @@
 		ED1BC0FE24E1BE2A00426EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED1BC10924E1C4EE00426EB8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		ED1BC10B24E1C4FF00426EB8 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		ED1DA75524ED5F80000BFC25 /* SpokenLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpokenLanguages.swift; sourceTree = "<group>"; };
+		ED1DA75924ED6E1A000BFC25 /* MovieTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTextViewController.swift; sourceTree = "<group>"; };
 		ED21F8C024E2D7BB00FA1692 /* network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = network.swift; sourceTree = "<group>"; };
 		ED21F8C424E2E42200FA1692 /* PopularMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovie.swift; sourceTree = "<group>"; };
 		ED21F8C624E2E44200FA1692 /* PopularMovieResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieResults.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				ED1BC10924E1C4EE00426EB8 /* FavoriteViewController.swift */,
 				ED1BC10B24E1C4FF00426EB8 /* PopularViewController.swift */,
 				ED87108E24E91AC4000B2C42 /* DetailMovieViewController.swift */,
+				ED1DA75924ED6E1A000BFC25 /* MovieTextViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				ED23BDFB24EC5AEF0015DFC2 /* Genre.swift */,
 				ED23BDFD24EC5B6B0015DFC2 /* Producer.swift */,
 				ED23BDFF24EC5BD20015DFC2 /* Details.swift */,
+				ED1DA75524ED5F80000BFC25 /* SpokenLanguages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,8 +294,10 @@
 				ED23BE0024EC5BD20015DFC2 /* Details.swift in Sources */,
 				ED1BC0F124E1BE2900426EB8 /* AppDelegate.swift in Sources */,
 				ED23C25824E56E7400161A20 /* TableViewCell.swift in Sources */,
+				ED1DA75624ED5F80000BFC25 /* SpokenLanguages.swift in Sources */,
 				ED21F8C524E2E42200FA1692 /* PopularMovie.swift in Sources */,
 				ED1BC10A24E1C4EE00426EB8 /* FavoriteViewController.swift in Sources */,
+				ED1DA75A24ED6E1A000BFC25 /* MovieTextViewController.swift in Sources */,
 				ED1BC0F324E1BE2900426EB8 /* SceneDelegate.swift in Sources */,
 				ED21F8C724E2E44200FA1692 /* PopularMovieResults.swift in Sources */,
 				ED87108F24E91AC4000B2C42 /* DetailMovieViewController.swift in Sources */,

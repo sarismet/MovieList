@@ -20,15 +20,18 @@ struct Details:Codable {
     let productionCompanies: [Producer]?
     let releaseDate: String?
     let runtime: Int? //"Expected to decode String but found a number instead."
+    let spokenLanguages: [SpokenLanguages]?
     let tagline: String?
     let title: String?
     let rate: Double?
+    
+    
     
     enum CodingKeys: String, CodingKey {
         case overview, genres, runtime, tagline, title
         case language = "original_language", backgroundImage = "backdrop_path", netflixURL = "homepage", imdbID = "imdb_id"
         case posterImage = "poster_path", productionCompanies = "production_companies", releaseDate = "release_date"
-        case rate = "vote_average"
+        case rate = "vote_average", spokenLanguages = "spoken_languages"
 }
     
 }

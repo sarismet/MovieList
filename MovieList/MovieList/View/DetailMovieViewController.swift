@@ -21,18 +21,20 @@ class DetailMovieViewController: UIViewController {
     
     @IBOutlet weak var mainImage: UIImageView!
 
-    
-    @IBOutlet weak var genre1: UILabel!
-    @IBOutlet weak var genre3: UILabel!
-    @IBOutlet weak var genre2: UILabel!
+    @IBOutlet weak var taglineLabel: UILabel!
     
     @IBOutlet weak var overview: UILabel!
     
     @IBOutlet weak var netflixButton: UIButton!
     @IBOutlet weak var imdbButton: UIButton!
     
+    
+    
+    
+    
  
-
+    @IBOutlet weak var genresStackView: UIStackView!
+    
     
     private var movieID: Int = 547016
     
@@ -82,19 +84,16 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var runTimeLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
 
-    @IBOutlet weak var firstProducerLabel: UILabel!
-    @IBOutlet weak var firstProducerImage: UIImageView!
-    
-    @IBOutlet weak var secondProducerLabel: UILabel!
-    @IBOutlet weak var secondProducerImage: UIImageView!
-    
-    
-    @IBOutlet weak var thirdProducerLabel: UILabel!
-    @IBOutlet weak var thirdProducerImage: UIImageView!
-    
-    @IBOutlet weak var lastHorizontalStackView: UIStackView!
-    
 
+   
+    @IBOutlet weak var lastStackView: UIStackView!
+    
+    @IBOutlet weak var producersStackView: UIStackView!
+    
+    @IBOutlet weak var spokenLanguagesStackView: UIStackView!
+    
+    var taglineText: String = ""
+    
     private func setVariables(_ details: Details){
         
         self.netflixURL = details.netflixURL ?? URL(string: "https://www.netflix.com/tr-en/")!
@@ -103,34 +102,93 @@ class DetailMovieViewController: UIViewController {
         self.mainImageURL = "\(self.imageURLInitial)\(details.posterImage ?? "/m0ObOaJBerZ3Unc74l471ar8Iiy.jpg")"
         self.imageURL = "\(self.imageURLInitial)\(details.backgroundImage ?? "/fjCezXiQWfGuNf4t7LruKky7kwV.jpg")"
         print("background image \(self.imageURL)")
+        
+        self.taglineText = details.tagline ?? " "
 
         mainImage.sd_setImage(with: URL(string: self.mainImageURL), completed: nil)
               
         backgroundImage.sd_setImage(with: URL(string: self.imageURL), completed: nil)
               
         self.titleLabel.text = details.title
+        
+        let dateYear = details.releaseDate?.components(separatedBy: "-")
+        
               
-        dateLabel.text = details.releaseDate //there is no alert or something???
-        runTimeLabel.text = String(details.runtime ?? 0)
+        dateLabel.text = dateYear?[0] //there is no alert or something???
+        let (hour,minutes) = details.runtime?.quotientAndRemainder(dividingBy: 60) ?? (0,0)
+        runTimeLabel.text = "\(hour) h \(minutes) min"
         languageLabel.text = details.language
-        genre1.text = details.genres?[0].name
-              //genre2.text = details.genres?[1].name
-              //genre3.text = details.genres?[2].name
-              
+        
+        for genre in details.genres ?? []{
+            let label = UILabel()
+            let message = genre.name
+            //set the text and style if any.
+            label.text = message
+            label.numberOfLines = 1
+            label.adjustsFontSizeToFitWidth = true
+            
+            
+            
+            label.textAlignment = .left
+            label.text = message
+            label.textColor = .white
+            label.backgroundColor = .black
+            //label.numberOfLines = 0
+            
+            label.font = label.font.withSize(17)
+            print(label.intrinsicContentSize.width)
+            label.frame = CGRect(x:0,y:0,width:label.intrinsicContentSize.width+7,height:label.intrinsicContentSize.height+7)
+            self.genresStackView.addArrangedSubview(label)
+            self.genresStackView.spacing = 7
+        }
+
 
               
         rateLabel.text = "\(details.rate ?? 0.0)/10"
               
         overview.text = details.overview
-              
+        overview.sizeToFit()
+        overview.numberOfLines = 0
         
+        for producer in details.productionCompanies ?? [] {
+            let label = UILabel()
+            label.textColor = .white
+            label.text = "   \(producer.name ?? " ")"
+            label.textAlignment = .center
+            self.producersStackView.addArrangedSubview(label)
+        }
+        
+        for spokenLanguages in details.spokenLanguages ?? [] {
+               let label = UILabel()
+               label.textColor = .white
+               label.text = spokenLanguages.name
+            label.textAlignment = .center
+               self.spokenLanguagesStackView.addArrangedSubview(label)
+           }
               
           }
     
-    
+    @objc func overviewlabelClicked(_ sender: Any) {
+        print("UILabel clicked")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: MovieTextViewController.self)) as! MovieTextViewController
+        
+        print(overview.text ?? " ")
+        print(taglineText)
+        
+        vc.setTexts(overview.text ?? " ", taglineText)
+        //vc.overviewLabel.text = overview.text ?? " "
+        //vc.taglineLabel.text = taglineText
+        navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: lastHorizontalStackView.bottomAnchor).isActive = true
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: lastStackView.bottomAnchor).isActive = true
+
+                overview.isUserInteractionEnabled = true
+
+        // Create and add the Gesture Recognizer
+        let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(overviewlabelClicked(_:)))
+        overview.addGestureRecognizer(guestureRecognizer)
 
             Network.shared.getMovieDetail(self.movieID , completion: { (result) in
                            switch result {
