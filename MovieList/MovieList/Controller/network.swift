@@ -28,6 +28,7 @@ class Network {
     
     func getMovieDetail(_ movieID: Int, completion: @escaping ((Result<Details, Error>) -> Void)) {
 
+            print("gelen id is \(movieID)")
         var request = URLRequest(url: URL(string: setURLForMovieDetail(movieID))!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -75,23 +75,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M18-eD-sZU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="99K-uy-Eu2">
+                                <rect key="frame" x="0.0" y="50" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UPd-S6-mAl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="M18-eD-sZU" firstAttribute="top" secondItem="2so-de-Uyd" secondAttribute="top" id="PVE-Wn-dwP"/>
-                            <constraint firstItem="M18-eD-sZU" firstAttribute="leading" secondItem="2so-de-Uyd" secondAttribute="leading" id="aEG-IA-nbZ"/>
-                            <constraint firstItem="2so-de-Uyd" firstAttribute="bottom" secondItem="M18-eD-sZU" secondAttribute="bottom" id="esM-yc-6yv"/>
-                            <constraint firstItem="2so-de-Uyd" firstAttribute="trailing" secondItem="M18-eD-sZU" secondAttribute="trailing" id="fvM-DS-ZCS"/>
+                            <constraint firstItem="UPd-S6-mAl" firstAttribute="trailing" secondItem="2so-de-Uyd" secondAttribute="trailing" id="3GV-Df-bqc"/>
+                            <constraint firstItem="99K-uy-Eu2" firstAttribute="leading" secondItem="2so-de-Uyd" secondAttribute="leading" id="5cU-Ev-Mwm"/>
+                            <constraint firstItem="99K-uy-Eu2" firstAttribute="top" secondItem="2so-de-Uyd" secondAttribute="top" constant="50" id="LHi-4U-DUO"/>
+                            <constraint firstItem="UPd-S6-mAl" firstAttribute="top" secondItem="2so-de-Uyd" secondAttribute="top" id="Q5K-BG-hER"/>
+                            <constraint firstItem="2so-de-Uyd" firstAttribute="bottom" secondItem="99K-uy-Eu2" secondAttribute="bottom" id="baJ-Od-mu4"/>
+                            <constraint firstItem="UPd-S6-mAl" firstAttribute="leading" secondItem="2so-de-Uyd" secondAttribute="leading" id="c1S-pa-4l5"/>
+                            <constraint firstItem="2so-de-Uyd" firstAttribute="trailing" secondItem="99K-uy-Eu2" secondAttribute="trailing" id="xfs-Ui-EU3"/>
+                            <constraint firstItem="99K-uy-Eu2" firstAttribute="top" secondItem="UPd-S6-mAl" secondAttribute="bottom" id="y2s-f4-qcc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2so-de-Uyd"/>
                     </view>
                     <navigationItem key="navigationItem" id="FE5-QU-5ln"/>
                     <connections>
-                        <outlet property="favoriTableView" destination="M18-eD-sZU" id="Eiy-f7-poC"/>
+                        <outlet property="favoriTableView" destination="99K-uy-Eu2" id="Wro-nK-edn"/>
+                        <outlet property="searchBar" destination="UPd-S6-mAl" id="31K-d0-2gB"/>
+                        <outlet property="tableView" destination="99K-uy-Eu2" id="ZNP-fn-c6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKk-c6-8Is" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

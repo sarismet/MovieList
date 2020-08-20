@@ -15,7 +15,7 @@ struct Details:Codable {
     let imdbID: String?
     let language: String?
     let overview: String?
-    
+    let id: Int?
     let posterImage: String?
     let productionCompanies: [Producer]?
     let releaseDate: String?
@@ -28,7 +28,7 @@ struct Details:Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case overview, genres, runtime, tagline, title
+        case overview, genres, runtime, tagline, title, id
         case language = "original_language", backgroundImage = "backdrop_path", netflixURL = "homepage", imdbID = "imdb_id"
         case posterImage = "poster_path", productionCompanies = "production_companies", releaseDate = "release_date"
         case rate = "vote_average", spokenLanguages = "spoken_languages"

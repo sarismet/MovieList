@@ -67,15 +67,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xef-qX-diI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xef-qX-diI">
                                         <rect key="frame" x="152" y="7" width="41" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="Lg6-Gu-Z2g"/>
                                             <constraint firstAttribute="width" constant="41" id="cWE-VB-QYP"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button" image="star"/>
                                         <connections>
-                                            <action selector="like_unlikeButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VKN-15-ren"/>
+                                            <action selector="like_unlikeButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ffr-mS-GsN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -87,8 +87,8 @@
                                     <constraint firstItem="PKK-Qg-T2Z" firstAttribute="leading" secondItem="ksG-4k-WGZ" secondAttribute="leading" id="Ig3-02-ZU6"/>
                                     <constraint firstAttribute="trailing" secondItem="Xef-qX-diI" secondAttribute="trailing" constant="7" id="g3b-rw-Nlw"/>
                                     <constraint firstItem="Xef-qX-diI" firstAttribute="top" secondItem="ksG-4k-WGZ" secondAttribute="top" constant="7" id="gSv-o6-BzA"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Xef-qX-diI" secondAttribute="bottom" constant="7" id="gu8-vM-Eqn"/>
-                                    <constraint firstItem="Xef-qX-diI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="PKK-Qg-T2Z" secondAttribute="trailing" constant="7" id="igJ-4J-K6w"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xef-qX-diI" secondAttribute="bottom" priority="999" constant="7" id="gu8-vM-Eqn"/>
+                                    <constraint firstItem="Xef-qX-diI" firstAttribute="leading" secondItem="PKK-Qg-T2Z" secondAttribute="trailing" priority="999" constant="7" id="igJ-4J-K6w"/>
                                     <constraint firstAttribute="height" constant="50" id="yYU-wn-c6V"/>
                                 </constraints>
                             </view>
@@ -118,11 +118,14 @@
                 <outlet property="date" destination="x12-H5-aut" id="vfe-tJ-Mnz"/>
                 <outlet property="genre" destination="PKK-Qg-T2Z" id="ddQ-zs-fwM"/>
                 <outlet property="imagePart" destination="1Xg-sl-6GE" id="PNo-l9-7b0"/>
-                <outlet property="likeButton" destination="Xef-qX-diI" id="c35-Dc-cxV"/>
+                <outlet property="likeButton" destination="Xef-qX-diI" id="zm1-Ms-ghF"/>
                 <outlet property="s" destination="TQn-j9-t7B" id="RJV-7k-Oms"/>
                 <outlet property="titleLabel" destination="mFR-SJ-eaV" id="bbf-3T-RQh"/>
             </connections>
             <point key="canvasLocation" x="206.52173913043481" y="83.370535714285708"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="256" height="256"/>
+    </resources>
 </document>

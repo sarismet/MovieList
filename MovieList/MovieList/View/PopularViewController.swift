@@ -15,6 +15,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var searchBar: UISearchBar!
     
+    let defaults = UserDefaults.standard
     
     private var movies: [PopularMovies]? = [] {
         didSet {
@@ -22,6 +23,11 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
             self.selectMovies = movies
             tableView.reloadData()
         }
+    }
+    var favoriMovies: [Int] = []
+
+    deinit {
+        defaults.set(favoriMovies, forKey: "favories")
     }
     
     private var selectMovies: [PopularMovies]? = []
@@ -79,7 +85,17 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.section == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-                cell.configure(data: selectMovies?[indexPath.row])
+                
+                    if self.favoriMovies.contains(self.selectMovies?[indexPath.row].id ?? 0){
+                        cell.isPressed = true
+                        //print("var")
+            }else{
+                        //print("yok")
+                        cell.isPressed = false
+            }
+            cell.configure(data: selectMovies?[indexPath.row])
+            cell.likeButton.tag = indexPath.row
+            cell.likeButton.addTarget(self, action: #selector(operationOnUserDefaults(_:)), for: .touchUpInside)
                 return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
@@ -87,6 +103,15 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
             return cell
         }
 
+    }
+    @objc func operationOnUserDefaults(_ sender: UIButton){
+        if self.favoriMovies.contains(self.movies?[sender.tag].id ?? 0){
+            let index: Int = favoriMovies.firstIndex(of: self.movies?[sender.tag].id ?? 0) ?? 0
+            favoriMovies.remove(at: index)
+            
+        }else{
+            self.favoriMovies.append(self.movies?[sender.tag].id ?? 0)
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1{
@@ -146,6 +171,8 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         self.title = "Popular Movies"
         self.loadMore(0)
+        self.favoriMovies = defaults.array(forKey: "favories") as? [Int] ?? []
+        print(self.favoriMovies)
     }
 }
 

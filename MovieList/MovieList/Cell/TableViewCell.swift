@@ -17,17 +17,27 @@ class TableViewCell: UITableViewCell {
     
     @IBAction func like_unlikeButton() {
         if isPressed {
-            isPressed = false
-            if let image = UIImage(named: "star.png") {
-                likeButton.setImage(image, for: .normal)
+            self.makelike()
             }
-        }else{
+        else{
             isPressed = true
-            if let image = UIImage(named: "favFilled.png") {
-                likeButton.setImage(image, for: .normal)
-            }
+            self.makeUnlike()
         }
         
+    }
+    
+    func makeUnlike(){
+        isPressed = true
+        if let image = UIImage(named: "favFilled.png") {
+            likeButton.setImage(image, for: .normal)
+        }
+    }
+    
+    func makelike(){
+        isPressed = false
+        if let image = UIImage(named: "star.png") {
+            likeButton.setImage(image, for: .normal)
+        }
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,9 +48,11 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if let image = UIImage(named: "star.png") {
+        /*if let image = UIImage(named: "star.png") {
             likeButton.setImage(image, for: .normal)
-        }
+        }else{
+            print(" laaaaaa")
+        }*/
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,7 +66,40 @@ class TableViewCell: UITableViewCell {
         self.date.text = "Date : \(data?.release_date ?? "20.2.2020")"
         self.genre.text = "Rate : \(data?.popularity ?? 11.11)"
         self.imagePart?.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(data?.poster_path ?? " ")"), completed: nil)
-            
+         
+        if isPressed {
+                    if let image = UIImage(named: "favFilled.png") {
+                        print("burdayımmm")
+                likeButton.setImage(image, for: .normal)
+            }
+            }
+        else{
+                    if let image = UIImage(named: "star.png") {
+                likeButton.setImage(image, for: .normal)
+            }
         }
+        }
+    
+    func configureDetail(data: Details){
+        print("geldim")
+        self.titleLabel.text = data.title
+        self.s.text = data.overview
+        self.date.text = "Date : \(data.releaseDate ?? "20.2.2020")"
+        self.genre.text = "Rate : \(data.rate ?? 11.11)"
+        self.imagePart?.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(data.posterImage ?? " ")"), completed: nil)
+         
+        if isPressed {
+                    if let image = UIImage(named: "favFilled.png") {
+                        print("burdayımmm")
+                likeButton.setImage(image, for: .normal)
+            }
+            }
+        else{
+                    if let image = UIImage(named: "star.png") {
+                likeButton.setImage(image, for: .normal)
+            }
+        }
+        
+    }
         
 }

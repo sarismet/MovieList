@@ -30,3 +30,10 @@ struct PopularMovies:Codable {
     
     
 }
+
+extension PopularMovies: Equatable {
+    
+    static func ==(lhs:PopularMovies, rhs:PopularMovies) -> Bool{
+        return lhs.id == rhs.id
+    }
+}
