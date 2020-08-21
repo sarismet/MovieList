@@ -8,10 +8,8 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
@@ -20,6 +18,4 @@ class ViewController: UIViewController {
 
     }
 
-
 }
-

@@ -11,10 +11,10 @@ import UIKit
 class MovieTextViewController: UIViewController {
     @IBOutlet weak var taglineLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
-    
+
     var movieText: String = ""
     var taglineText: String = ""
-    
+
     func setTexts (_ movieText: String, _ taglineText: String) {
         self.movieText = "Overview: \n\(movieText)"
         self.taglineText = "\" \(taglineText) \""
@@ -27,6 +27,5 @@ class MovieTextViewController: UIViewController {
         taglineLabel.adjustsFontSizeToFitWidth = true
         // Do any additional setup after loading the view.
     }
-    
 
 }

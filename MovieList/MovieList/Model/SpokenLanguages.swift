@@ -8,7 +8,6 @@
 
 import Foundation
 
-
-struct SpokenLanguages:Codable {
+struct SpokenLanguages: Codable {
     let name: String?
 }

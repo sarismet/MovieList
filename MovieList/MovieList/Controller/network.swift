@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 class Network {
 
@@ -15,30 +14,27 @@ class Network {
     private let apiKey: String = "9de12758de4f4da163fb136f63b0bf58"
     private let language: String = "en-US"
     static var page: Int = 1
- 
-    
-    
+
     func setURL(_ pageNo: Int = 1) -> String {
             return "https://api.themoviedb.org/3/movie/popular?api_key=\(self.apiKey)&language=\(language)&page=\(pageNo)"
     }
-    
+
     func setURLForMovieDetail(_ movieID: Int) -> String {
         return "https://api.themoviedb.org/3/movie/\(movieID)?api_key=9de12758de4f4da163fb136f63b0bf58&language=en-US"
     }
-    
-    func getMovieDetail(_ movieID: Int, completion: @escaping ((Result<Details, Error>) -> Void)) {
 
-            print("gelen id is \(movieID)")
-        var request = URLRequest(url: URL(string: setURLForMovieDetail(movieID))!)
+    func getMovieDetail(_ movieURL: URL, completion: @escaping ((Result<MovieDetails, Error>) -> Void)) {
+
+        var request = URLRequest(url: movieURL)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(Details.self, from: data)
+                    let result = try JSONDecoder().decode(MovieDetails.self, from: data)
                     completion(.success(result))
-                } catch(let error) {
+                } catch let error {
                     completion(.failure(error))
                 }
             } else {
@@ -51,19 +47,18 @@ class Network {
 
     }
 
-
-    func getMovies(completion: @escaping ((Result<PopularMovieResults, Error>) -> Void)) {
-
-        var request = URLRequest(url: URL(string: setURL())!)
+    func getMovies(_ moviesURL: URL, completion: @escaping ((Result<MovieResults, Error>) -> Void)) {
+        print("movirurl \(moviesURL)")
+        var request = URLRequest(url: moviesURL)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(PopularMovieResults.self, from: data)
+                    let result = try JSONDecoder().decode(MovieResults.self, from: data)
                     completion(.success(result))
-                } catch(let error) {
+                } catch let error {
                     completion(.failure(error))
                 }
             } else {
@@ -74,13 +69,6 @@ class Network {
         }
         dataTask.resume()
 
-    }
-
-
-    func getMoviesWithAlamofire(completion: @escaping ((Result<PopularMovieResults, AFError>) -> Void)) {
-        AF.request(URL(string: setURL())!, method: .get).responseDecodable(of: PopularMovieResults.self) { (response) in
-            completion(response.result)
-        }
     }
 
 }

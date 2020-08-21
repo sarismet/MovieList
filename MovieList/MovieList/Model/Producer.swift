@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Producer:Codable {
+struct Producer: Codable {
     let id: Int?
     let logo_path: String?
     let name: String?

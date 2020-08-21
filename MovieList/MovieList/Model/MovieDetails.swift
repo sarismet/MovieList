@@ -1,14 +1,15 @@
 //
-//  Details.swift
+//  MovieDetails.swift
 //  MovieList
 //
-//  Created by ismet sarı on 18.08.2020.
+//  Created by ismet sarı on 21.08.2020.
 //  Copyright © 2020 ismet sarı. All rights reserved.
 //
 
 import Foundation
 
-struct Details:Codable {
+struct MovieDetails: Codable {
+    
     let backgroundImage: String?
     let genres: [Genre]?
     let netflixURL: URL?
@@ -32,6 +33,7 @@ struct Details:Codable {
         case language = "original_language", backgroundImage = "backdrop_path", netflixURL = "homepage", imdbID = "imdb_id"
         case posterImage = "poster_path", productionCompanies = "production_companies", releaseDate = "release_date"
         case rate = "vote_average", spokenLanguages = "spoken_languages"
-}
+    }
     
 }
+

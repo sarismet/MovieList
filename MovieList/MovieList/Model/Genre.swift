@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Genre:Codable {
+struct Genre: Codable {
     let name: String?
 }
