@@ -70,7 +70,7 @@
         <!--Favorite View Controller-->
         <scene sceneID="SLg-yq-GQ0">
             <objects>
-                <viewController id="WhQ-KW-FHu" customClass="FavoriteViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteViewController" id="WhQ-KW-FHu" customClass="FavoriteViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KSv-v2-yAM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,9 +249,6 @@
                                                                     <constraint firstAttribute="width" constant="63" id="M1h-xx-7mU"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button" image="unlike_button"/>
-                                                                <connections>
-                                                                    <action selector="like_unlikeButton" destination="UWx-y4-78Z" eventType="touchUpInside" id="nrr-n3-C9i"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -331,43 +328,8 @@
                                                             <constraint firstAttribute="height" constant="232" id="fS5-rK-VcM"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4k2-iZ-gOC">
-                                                        <rect key="frame" x="0.0" y="557" width="414" height="100"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uou-Ld-BSi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
-                                                                <state key="normal" title="Button" image="netflix"/>
-                                                                <connections>
-                                                                    <action selector="netflixButtonAction:" destination="UWx-y4-78Z" eventType="touchUpInside" id="aMa-Hj-lK6"/>
-                                                                </connections>
-                                                            </button>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OS-KPS">
-                                                                <rect key="frame" x="207" y="0.0" width="207" height="100"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPy-uk-OUW">
-                                                                        <rect key="frame" x="20" y="0.0" width="167" height="100"/>
-                                                                        <state key="normal" title="Button" image="imdb"/>
-                                                                        <connections>
-                                                                            <action selector="imdbButtonAction:" destination="UWx-y4-78Z" eventType="touchUpInside" id="0jf-Fs-wBV"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="wPy-uk-OUW" secondAttribute="trailing" constant="20" id="6Oc-vc-YrB"/>
-                                                                    <constraint firstItem="wPy-uk-OUW" firstAttribute="leading" secondItem="AmO-OS-KPS" secondAttribute="leading" constant="20" id="L0x-kK-HZT"/>
-                                                                    <constraint firstItem="wPy-uk-OUW" firstAttribute="top" secondItem="AmO-OS-KPS" secondAttribute="top" id="fSh-Nh-XWe"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="wPy-uk-OUW" secondAttribute="bottom" id="r3G-DE-1uX"/>
-                                                                </constraints>
-                                                            </view>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="100" id="p8o-tf-eVU"/>
-                                                        </constraints>
-                                                    </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="okD-IK-Xaw">
-                                                        <rect key="frame" x="0.0" y="657" width="414" height="50"/>
+                                                        <rect key="frame" x="0.0" y="557" width="414" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inY-3g-1vh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
@@ -417,6 +379,41 @@
                                                             <constraint firstItem="inY-3g-1vh" firstAttribute="leading" secondItem="okD-IK-Xaw" secondAttribute="leading" id="ycR-SY-Ft3"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4k2-iZ-gOC">
+                                                        <rect key="frame" x="0.0" y="607" width="414" height="100"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uou-Ld-BSi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
+                                                                <state key="normal" title="Button" image="netflix"/>
+                                                                <connections>
+                                                                    <action selector="netflixButtonAction:" destination="UWx-y4-78Z" eventType="touchUpInside" id="aMa-Hj-lK6"/>
+                                                                </connections>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OS-KPS">
+                                                                <rect key="frame" x="207" y="0.0" width="207" height="100"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPy-uk-OUW">
+                                                                        <rect key="frame" x="20" y="0.0" width="167" height="100"/>
+                                                                        <state key="normal" title="Button" image="imdb"/>
+                                                                        <connections>
+                                                                            <action selector="imdbButtonAction:" destination="UWx-y4-78Z" eventType="touchUpInside" id="0jf-Fs-wBV"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="wPy-uk-OUW" secondAttribute="trailing" constant="20" id="6Oc-vc-YrB"/>
+                                                                    <constraint firstItem="wPy-uk-OUW" firstAttribute="leading" secondItem="AmO-OS-KPS" secondAttribute="leading" constant="20" id="L0x-kK-HZT"/>
+                                                                    <constraint firstItem="wPy-uk-OUW" firstAttribute="top" secondItem="AmO-OS-KPS" secondAttribute="top" id="fSh-Nh-XWe"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wPy-uk-OUW" secondAttribute="bottom" id="r3G-DE-1uX"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="p8o-tf-eVU"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -452,22 +449,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fu8-k4-bqy"/>
                     <connections>
-                        <outlet property="backgroundImage" destination="ljZ-zl-QLW" id="WfG-aF-y7q"/>
-                        <outlet property="dateLabel" destination="Zhb-RG-7nD" id="PRl-wP-jVd"/>
-                        <outlet property="genresStackView" destination="5Zw-Tq-WtP" id="9bW-Bu-HQU"/>
-                        <outlet property="imdbButton" destination="wPy-uk-OUW" id="jrG-v2-YzS"/>
-                        <outlet property="languageLabel" destination="BqE-Ul-XrN" id="Fhs-yp-8aO"/>
-                        <outlet property="lastStackView" destination="okD-IK-Xaw" id="cOh-vh-osL"/>
-                        <outlet property="likeButton" destination="NOd-7n-mHj" id="G5j-7D-izq"/>
-                        <outlet property="mainImage" destination="qek-rP-ePi" id="5nf-YL-3th"/>
-                        <outlet property="netflixButton" destination="uou-Ld-BSi" id="vgv-am-FuR"/>
-                        <outlet property="overview" destination="6SD-2F-D0A" id="06l-6j-GqR"/>
-                        <outlet property="producersStackView" destination="Y1Q-OS-PCE" id="e5C-sV-yRr"/>
-                        <outlet property="rateLabel" destination="SJ1-Ir-pD6" id="uPB-Ww-XQ5"/>
-                        <outlet property="runTimeLabel" destination="JBK-Zf-rVM" id="2c9-jr-WTg"/>
-                        <outlet property="scrollView" destination="oHD-ad-ZV6" id="mzF-2c-fAq"/>
-                        <outlet property="spokenLanguagesStackView" destination="cmN-4h-V3S" id="k9g-WH-dhk"/>
-                        <outlet property="titleLabel" destination="HMG-B2-jhI" id="iJp-DC-Grn"/>
+                        <outlet property="backgroundImage" destination="ljZ-zl-QLW" id="ciD-o2-AeH"/>
+                        <outlet property="dateLabel" destination="Zhb-RG-7nD" id="5gA-01-an3"/>
+                        <outlet property="genresStackView" destination="5Zw-Tq-WtP" id="7ea-QF-j1G"/>
+                        <outlet property="imdbButton" destination="wPy-uk-OUW" id="qLT-7m-1I0"/>
+                        <outlet property="languageLabel" destination="SJ1-Ir-pD6" id="hH1-Gi-IC2"/>
+                        <outlet property="likeButton" destination="NOd-7n-mHj" id="qkJ-zf-KH9"/>
+                        <outlet property="mainImage" destination="qek-rP-ePi" id="vir-wP-arA"/>
+                        <outlet property="moreInfoStackView" destination="okD-IK-Xaw" id="0ac-YH-Cem"/>
+                        <outlet property="netflixButton" destination="uou-Ld-BSi" id="4Et-2F-2MV"/>
+                        <outlet property="overview" destination="6SD-2F-D0A" id="yB2-4R-Z9p"/>
+                        <outlet property="producersStackView" destination="Y1Q-OS-PCE" id="H2n-dq-OZC"/>
+                        <outlet property="rateLabel" destination="BqE-Ul-XrN" id="gUg-Ty-qen"/>
+                        <outlet property="runTimeLabel" destination="JBK-Zf-rVM" id="T1h-tm-EC5"/>
+                        <outlet property="scrollView" destination="oHD-ad-ZV6" id="1V9-wd-uLs"/>
+                        <outlet property="spokenLanguagesStackView" destination="cmN-4h-V3S" id="l8I-bo-2Jk"/>
+                        <outlet property="titleLabel" destination="HMG-B2-jhI" id="ngP-qG-GZg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25s-y6-bqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

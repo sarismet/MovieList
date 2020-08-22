@@ -19,9 +19,6 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private var movies: [Movie] = [] {
         didSet {
-            for movie in self.movies {
-                print(movie.title ?? "optional title")
-            }
             self.selectMovies = movies
             tableView.reloadData()
         }
@@ -50,15 +47,16 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
         if let id = selectMovies[indexPath.row].id {
-            vc.setMovieId(id)
+            vc.configure(id)
+            navigationController?.pushViewController(vc, animated: true)
         }
         
-        navigationController?.pushViewController(vc, animated: true)
+        
         
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
