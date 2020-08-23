@@ -65,9 +65,6 @@
                                                     <constraint firstAttribute="width" constant="49" id="oz0-d0-DQ9"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="star"/>
-                                                <connections>
-                                                    <action selector="like_unlikeButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hvG-tj-EkC"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

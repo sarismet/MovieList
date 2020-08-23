@@ -80,7 +80,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-            
+            cell.setLikeButton(FavoriMoviesController.shared.isFavorite(selectMovies[indexPath.row]))
             cell.configure(data: selectMovies[indexPath.row])
             return cell
         } else {
