@@ -46,6 +46,8 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var imdbButton: UIButton!
     
     
+    @IBOutlet weak var lastStackView: UIStackView!
+    
     @IBAction func netflixButtonAction(_ sender: Any) {
         UIApplication.shared.open(self.netflixURL ?? URL(string: "https://www.netflix.com/tr-en/")!)
         //burda artık forcelayabilir miyim?
@@ -174,7 +176,7 @@ class DetailMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: imdbButton.bottomAnchor).isActive = true
+        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: lastStackView.bottomAnchor).isActive = true
         
         overview.isUserInteractionEnabled = true
         

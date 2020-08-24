@@ -110,29 +110,21 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     func loadMore() {
         self.loading = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
-
         
-        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-            Network.shared.getMovies(self.pageNo, completion: { (result) in
-                                    switch result {
-                                    case .success(let popularMoviesResults):
-                                        DispatchQueue.main.async {
-                                            
-                                            MovieController.shared.addPopularMovies(popularMoviesResults.results ?? [])
-                                         self.movies.append(contentsOf: popularMoviesResults.results ?? [])
-
-                                        }
-                                    case .failure(let error):
-                                        print(error)
-                                    }
-                                })
-
-             self.loading = false
-         })
-        
-        
-
-        
+  
+        Network.shared.getMovies(self.pageNo, completion: { (result) in
+            switch result {
+            case .success(let popularMoviesResults):
+                DispatchQueue.main.async {
+                    
+                    MovieController.shared.addPopularMovies(popularMoviesResults.results ?? [])
+                    self.movies.append(contentsOf: popularMoviesResults.results ?? [])
+                    self.loading = false
+                }
+            case .failure(let error):
+                print(error)
+            }
+        })
 
     }
     

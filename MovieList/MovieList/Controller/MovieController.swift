@@ -29,6 +29,10 @@ class MovieController {
         }
     }
     
+    func getLoad(){
+        
+    }
+    
     
     func getPopularMovies() -> [Movie] {
         return Array(self.popularMovies.values)

@@ -54,17 +54,26 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
         
     }
     
-
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
         if let id = selectMovies[indexPath.row].id {
             vc.configure(id)
             navigationController?.pushViewController(vc, animated: true)
+        }        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        self.selectMovies = []
+        
+        if searchText == "" {
+            self.selectMovies = self.movies
+        } else {
+            
+            self.selectMovies = self.movies.filter({ $0.title?.range(of: searchText, options: .caseInsensitive, locale: Locale.current) != nil})
         }
         
-        
-        
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
