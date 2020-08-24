@@ -8,7 +8,21 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class FavoriteViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
+    
+    
+    func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
+        
+        print("indexPath \(indexPath)")
+        if !FavoriMoviesController.shared.bringTheAction(theMovie) {
+            self.movies.remove(at: indexPath.row)
+            /*tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()*/
+        }
+        
+    }
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -48,18 +62,21 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.setLikeButton(true)
-        cell.configure(selectMovies[indexPath.row].id ?? 0)
+        cell.delegate = self
+        cell.configure(selectMovies[indexPath.row],indexPath)
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
-        if let id = selectMovies[indexPath.row].id {
-            vc.configure(id)
+        vc.delegate = self
+            vc.configure(selectMovies[indexPath.row],indexPath)
             navigationController?.pushViewController(vc, animated: true)
-        }        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -78,6 +95,7 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("favorities view did load")
         self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
         // Do any additional setup after loading the view.
     }

@@ -11,8 +11,6 @@ import SDWebImage
 
 class DetailMovieViewController: UIViewController {
     
-    var isLiked: Bool = false
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -45,8 +43,24 @@ class DetailMovieViewController: UIViewController {
     
     @IBOutlet weak var imdbButton: UIButton!
     
-    
     @IBOutlet weak var lastStackView: UIStackView!
+    
+    
+    @IBAction func isPressedButton() {
+        if isLiked{
+            self.isLiked = false
+        }else {
+            self.isLiked = true
+        }
+        
+        self.setLikeButton()
+        //let _ = FavoriMoviesController.shared.bringTheAction(self.movie)
+        if let movie = self.movie {
+            self.delegate?.didPressButton(movie,self.indexPath)
+        }
+        
+        // self.isLiked = isLiked == false ? true : false
+    }
     
     @IBAction func netflixButtonAction(_ sender: Any) {
         UIApplication.shared.open(self.netflixURL ?? URL(string: "https://www.netflix.com/tr-en/")!)
@@ -58,7 +72,9 @@ class DetailMovieViewController: UIViewController {
     }
     
     
+    var movie:Movie?
     
+    var indexPath: IndexPath = [0,0]
     
     var details: MovieDetails? {
         
@@ -67,6 +83,19 @@ class DetailMovieViewController: UIViewController {
         }
     }
     
+    func setLikeButton(){
+        if self.isLiked {
+            if let image = UIImage(named: "like_button.png") {
+                likeButton.setImage(image, for: .normal)
+            }
+        } else {
+            if let image = UIImage(named: "unlike_button.png") {
+                likeButton.setImage(image, for: .normal)
+            }
+        }
+    }
+    
+    var isLiked: Bool = false
     
     var netflixURL: URL?
     
@@ -76,10 +105,16 @@ class DetailMovieViewController: UIViewController {
     
     var movieID: Int = 0
     
+    weak var delegate: TableViewCellDelegate?
     
-    func configure(_ movieID: Int){
+    
+    func configure(_ movie: Movie, _ indexPath: IndexPath){
         
-        self.movieID = movieID
+        self.indexPath = indexPath
+        self.isLiked = FavoriMoviesController.shared.isFavorite(movie)
+        self.movieID = movie.id ?? 0
+        
+        self.movie = movie
         
         if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
             self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
@@ -122,6 +157,7 @@ class DetailMovieViewController: UIViewController {
             if let posterImageUrl = details.posterImage {
                 self.mainImage.sd_setImage(with: URL(string: "\(self.imageURLInitial)\(posterImageUrl)"), completed: nil)
             }
+            
             for genre in details.genres ?? []{
                 let label = UILabel()
                 let message = genre.name
@@ -171,6 +207,10 @@ class DetailMovieViewController: UIViewController {
         vc.setTexts(overview.text ?? " ", self.details?.tagline ?? " ")
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setLikeButton()
     }
     
     override func viewDidLoad() {

@@ -13,7 +13,7 @@ class FavoriMoviesController {
     static let shared = FavoriMoviesController()
     
     init(){
-        if let data =  UserDefaults.standard.data(forKey: "myFavoritesX"){
+        if let data =  UserDefaults.standard.data(forKey: "favorites"){
             do {
                 let decoder = JSONDecoder()
                 self.favoriMovies = try decoder.decode(FavoritesModel.self, from: data)
@@ -30,7 +30,7 @@ class FavoriMoviesController {
             do {
                 let encoder = JSONEncoder()
                 let data = try encoder.encode(favoriMovies)
-                UserDefaults.standard.set(data, forKey: "myFavoritesX")
+                UserDefaults.standard.set(data, forKey: "favorites")
             }
             catch {
                 print("There is an error while encoding")

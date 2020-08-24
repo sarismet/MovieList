@@ -247,7 +247,10 @@
                                                                     <constraint firstAttribute="height" constant="63" id="Cau-VL-eOD"/>
                                                                     <constraint firstAttribute="width" constant="63" id="M1h-xx-7mU"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button" image="unlike_button"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="isPressedButton" destination="UWx-y4-78Z" eventType="touchUpInside" id="Umi-w6-RBE"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -469,7 +472,7 @@
                         <outlet property="imdbButton" destination="wPy-uk-OUW" id="qLT-7m-1I0"/>
                         <outlet property="languageLabel" destination="SJ1-Ir-pD6" id="hH1-Gi-IC2"/>
                         <outlet property="lastStackView" destination="4k2-iZ-gOC" id="2e9-85-55B"/>
-                        <outlet property="likeButton" destination="NOd-7n-mHj" id="qkJ-zf-KH9"/>
+                        <outlet property="likeButton" destination="NOd-7n-mHj" id="nlZ-vo-3YQ"/>
                         <outlet property="mainImage" destination="qek-rP-ePi" id="vir-wP-arA"/>
                         <outlet property="moreInfoStackView" destination="okD-IK-Xaw" id="0ac-YH-Cem"/>
                         <outlet property="netflixButton" destination="uou-Ld-BSi" id="4Et-2F-2MV"/>
@@ -563,6 +566,5 @@
         <image name="imdb" width="512" height="512"/>
         <image name="netflix" width="1801" height="756"/>
         <image name="obss-logo.png" width="96" height="33.840000152587891"/>
-        <image name="unlike_button" width="1000" height="953.5"/>
     </resources>
 </document>

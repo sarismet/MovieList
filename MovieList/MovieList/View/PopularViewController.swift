@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
     
     private var loading: Bool = false
     private var searching: Bool = false
@@ -37,6 +37,13 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
+        
+        print("indexPath \(indexPath)")
+        let _ = FavoriMoviesController.shared.bringTheAction(theMovie) 
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.selectMovies.count
@@ -48,10 +55,10 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
-        if let id = selectMovies[indexPath.row].id {
-            vc.configure(id)
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        vc.delegate = self
+        vc.configure(selectMovies[indexPath.row],indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+        
         
         
         
@@ -80,9 +87,8 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-            cell.setPopularCellValue(true)
-            cell.setLikeButton(FavoriMoviesController.shared.isFavorite(selectMovies[indexPath.row]))
-            cell.configure(selectMovies[indexPath.row].id ?? 0)
+            cell.delegate = self
+            cell.configure(selectMovies[indexPath.row],indexPath)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
@@ -111,7 +117,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         self.loading = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
         
-  
+        
         Network.shared.getMovies(self.pageNo, completion: { (result) in
             switch result {
             case .success(let popularMoviesResults):
@@ -125,7 +131,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
                 print(error)
             }
         })
-
+        
     }
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
