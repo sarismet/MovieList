@@ -9,30 +9,29 @@
 import Foundation
 
 class MovieController {
-
-    static let sharedMovieController = MovieController()
-
-    private var popularMovies: [Movie] = []
-
-
-    func getMorePopularMovies(_ pageNo: Int) {
-        
-            Network.shared.getMovies(pageNo, completion: { (result) in
-                switch result {
-                case .success(let popularMovieResults):
-                    
-                        self.popularMovies.append(contentsOf: popularMovieResults.results ?? [] )    
-                case .failure(let error):
-                    print(error)
-                }
-            })
-
-        }
-
     
-
-    func getPopularMovies() -> [Movie] {
-         return self.popularMovies
+    static let shared = MovieController()
+    
+    private var popularMovies: [Int:Movie] = [:]
+    
+    
+    func getTheMovie(_ pageNo: Int) -> Movie {
+        return self.popularMovies[pageNo]! //HELP
     }
-
+    
+    func addPopularMovies(_ newMovieList: [Movie]) {
+        
+        for movie in newMovieList {
+            if let theID = movie.id {
+                self.popularMovies[theID] = movie
+            }
+            
+        }
+    }
+    
+    
+    func getPopularMovies() -> [Movie] {
+        return Array(self.popularMovies.values)
+    }
+    
 }

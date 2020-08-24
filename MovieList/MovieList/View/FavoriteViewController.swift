@@ -33,23 +33,43 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
     
     private var selectMovies: [Movie] = []
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return self.selectMovies.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        
-        //cell.configure(data: selectMovies[indexPath.row])
+        cell.setLikeButton(true)
+        cell.configure(selectMovies[indexPath.row].id ?? 0)
         return cell
         
     }
     
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
+        if let id = selectMovies[indexPath.row].id {
+            vc.configure(id)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
         // Do any additional setup after loading the view.
     }
     

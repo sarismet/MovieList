@@ -80,8 +80,9 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+            cell.setPopularCellValue(true)
             cell.setLikeButton(FavoriMoviesController.shared.isFavorite(selectMovies[indexPath.row]))
-            cell.configure(data: selectMovies[indexPath.row])
+            cell.configure(selectMovies[indexPath.row].id ?? 0)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
@@ -109,11 +110,30 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     func loadMore() {
         self.loading = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
-        MovieController.sharedMovieController.getMorePopularMovies(self.pageNo)
-        DispatchQueue.main.async {
-            self.movies = MovieController.sharedMovieController.getPopularMovies()
-            self.loading = false
-        }
+
+        
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            Network.shared.getMovies(self.pageNo, completion: { (result) in
+                                    switch result {
+                                    case .success(let popularMoviesResults):
+                                        DispatchQueue.main.async {
+                                            
+                                            MovieController.shared.addPopularMovies(popularMoviesResults.results ?? [])
+                                         self.movies.append(contentsOf: popularMoviesResults.results ?? [])
+
+                                        }
+                                    case .failure(let error):
+                                        print(error)
+                                    }
+                                })
+
+             self.loading = false
+         })
+        
+        
+
+        
+
     }
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
