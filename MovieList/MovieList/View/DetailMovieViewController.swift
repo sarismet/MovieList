@@ -119,7 +119,7 @@ class DetailMovieViewController: UIViewController {
         if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
             self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
         }else{
-            Network.shared.getMovieDetail(movieID, completion: { (result) in
+            Network.shared.getDetails(movieID, completion: { (result) in
                 switch result {
                 case .success(let allTheDetails):
                     DispatchQueue.main.async {
@@ -127,7 +127,7 @@ class DetailMovieViewController: UIViewController {
                     }
                     
                 case .failure(let error):
-                    print(error)
+                    print(error.errorMessage)
                 }
             })
         }

@@ -118,17 +118,37 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
         
         
-        Network.shared.getMovies(self.pageNo, completion: { (result) in
-            switch result {
-            case .success(let popularMoviesResults):
+        
+        Network.shared.getPopularMovies(self.pageNo, completion: { (result) in
+           
+            
                 DispatchQueue.main.async {
+                     switch result {
+                case .success(let popularMoviesResults):
                     
                     MovieController.shared.addPopularMovies(popularMoviesResults.results ?? [])
                     self.movies.append(contentsOf: popularMoviesResults.results ?? [])
                     self.loading = false
+                case .failure(let error):
+                    print(error.errorMessage)
+                    // Create new Alert
+                    let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                        print("Ok button tapped")
+                    })
+                    // Create Cancel button with action handlder
+                    let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (action) -> Void in
+                        print("Re-try button tapped")
+                        self.loadMore()
+                    }
+                    //Add OK and Cancel button to an Alert object
+                    dialogMessage.addAction(ok)
+                    dialogMessage.addAction(cancel)
+                    // Present alert message to user
+                    self.present(dialogMessage, animated: true, completion: nil)
                 }
-            case .failure(let error):
-                print(error)
+
             }
         })
         
@@ -149,5 +169,8 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.loadView()
         self.loadMore()
+        
+
+        
     }
 }
