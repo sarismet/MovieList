@@ -93,6 +93,11 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
         self.tableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("favorities view did load")
