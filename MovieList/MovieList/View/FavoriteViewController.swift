@@ -17,8 +17,8 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
         if !FavoriMoviesController.shared.bringTheAction(theMovie) {
             self.movies.remove(at: indexPath.row)
             /*tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()*/
+             tableView.deleteRows(at: [indexPath], with: .automatic)
+             tableView.endUpdates()*/
         }
         
     }
@@ -36,7 +36,7 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
             tableView.keyboardDismissMode = .onDrag
         }
     }
-
+    
     
     private var movies: [Movie] = [] {
         didSet {
@@ -71,8 +71,8 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
         vc.delegate = self
-            vc.configure(selectMovies[indexPath.row],indexPath)
-            navigationController?.pushViewController(vc, animated: true)
+        vc.configure(selectMovies[indexPath.row],indexPath)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -95,7 +95,13 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
         self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.title = "Favorite Movies"
     }
     
     override func viewDidLoad() {

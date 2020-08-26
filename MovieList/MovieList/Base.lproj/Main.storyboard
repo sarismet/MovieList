@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,8 +19,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="5yo-9y-QR6" kind="relationship" relationship="viewControllers" id="797-8e-wZS"/>
-                        <segue destination="fEw-Sq-GNN" kind="relationship" relationship="viewControllers" id="c37-8o-0uN"/>
-                        <segue destination="WhQ-KW-FHu" kind="relationship" relationship="viewControllers" id="P2N-PN-yvB"/>
+                        <segue destination="opw-VB-Kxv" kind="relationship" relationship="viewControllers" id="gXz-dR-LJU"/>
+                        <segue destination="ZRU-tG-fF6" kind="relationship" relationship="viewControllers" id="hc9-pO-JCX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rt-PJ-Jzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957.9710144927537" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-1388" y="1109"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="SLg-yq-GQ0">
@@ -103,7 +104,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="UPd-S6-mAl" firstAttribute="trailing" secondItem="2so-de-Uyd" secondAttribute="trailing" id="3GV-Df-bqc"/>
                             <constraint firstItem="99K-uy-Eu2" firstAttribute="leading" secondItem="2so-de-Uyd" secondAttribute="leading" id="5cU-Ev-Mwm"/>
@@ -125,7 +126,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKk-c6-8Is" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="888.61607142857144"/>
+            <point key="canvasLocation" x="2391" y="1342"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="NYd-a2-pml">
+            <objects>
+                <navigationController id="ZRU-tG-fF6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="UEy-Iy-rYP"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gun-2A-NhE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fEw-Sq-GNN" kind="relationship" relationship="rootViewController" id="KQO-gO-V1S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ieD-4u-mwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="483"/>
         </scene>
         <!--Popular-->
         <scene sceneID="oLT-Tf-mx5">
@@ -144,7 +162,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="nGv-2z-B3W" firstAttribute="leading" secondItem="ELg-zv-c6D" secondAttribute="leading" id="H4D-mh-d4t"/>
                             <constraint firstItem="nGv-2z-B3W" firstAttribute="top" secondItem="ELg-zv-c6D" secondAttribute="top" id="KYA-st-kNH"/>
@@ -158,9 +176,7 @@
                         <viewLayoutGuide key="safeArea" id="ELg-zv-c6D"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Popular" image="book.fill" catalog="system" id="x3j-ry-CAp"/>
-                    <navigationItem key="navigationItem" id="xds-V5-lnH">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="a9N-Yg-Z1S"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="xds-V5-lnH"/>
                     <connections>
                         <outlet property="searchBar" destination="nGv-2z-B3W" id="Cc4-x0-7dN"/>
                         <outlet property="tableView" destination="TOa-Dx-tvN" id="yql-NU-wpM"/>
@@ -168,7 +184,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAm-Cm-agb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3053.6231884057975" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-714" y="2083"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="XNB-WJ-Zeq">
+            <objects>
+                <navigationController id="opw-VB-Kxv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5cF-HA-VGd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p0G-A2-DWt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WhQ-KW-FHu" kind="relationship" relationship="rootViewController" id="cxN-qF-gnl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L7K-nx-mxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="354"/>
         </scene>
         <!--Detail Movie View Controller-->
         <scene sceneID="QFP-FB-eVi">
@@ -205,12 +238,13 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMG-B2-jhI">
                                                                                 <rect key="frame" x="17" y="0.0" width="317" height="50"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="HMG-B2-jhI" firstAttribute="leading" secondItem="5st-nB-OVX" secondAttribute="leading" constant="17" id="CtP-DH-1oO"/>
                                                                             <constraint firstItem="HMG-B2-jhI" firstAttribute="top" secondItem="5st-nB-OVX" secondAttribute="top" id="VLL-rk-goQ"/>
@@ -228,25 +262,25 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBK-Zf-rVM">
                                                                                         <rect key="frame" x="58" y="0.0" width="42" height="20.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ1-Ir-pD6">
                                                                                         <rect key="frame" x="116" y="0.0" width="42" height="20.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqE-Ul-XrN">
                                                                                         <rect key="frame" x="174" y="0.0" width="143" height="20.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
@@ -261,6 +295,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOd-7n-mHj">
                                                                 <rect key="frame" x="334" y="20" width="63" height="63"/>
@@ -268,13 +303,15 @@
                                                                     <constraint firstAttribute="height" constant="63" id="Cau-VL-eOD"/>
                                                                     <constraint firstAttribute="width" constant="63" id="M1h-xx-7mU"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button" image="unlike_button"/>
+                                                                <state key="normal" title="Button" image="star">
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="isPressedButton" destination="UWx-y4-78Z" eventType="touchUpInside" id="baA-uz-PMB"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
                                                             <constraint firstItem="WSM-Nl-D2y" firstAttribute="leading" secondItem="jbB-ls-dRW" secondAttribute="leading" id="2aM-J9-ycp"/>
                                                             <constraint firstAttribute="height" constant="100" id="2qz-ox-UoZ"/>
@@ -295,7 +332,7 @@
                                                                         <rect key="frame" x="7" y="0.0" width="149" height="232"/>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="qek-rP-ePi" firstAttribute="leading" secondItem="Ivh-RW-c0H" secondAttribute="leading" constant="7" id="2hj-Wu-smN"/>
                                                                     <constraint firstAttribute="trailing" secondItem="qek-rP-ePi" secondAttribute="trailing" constant="7" id="49H-HA-3VP"/>
@@ -312,12 +349,13 @@
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="301" placeholderIntrinsicHeight="25" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-Tq-WtP">
                                                                                 <rect key="frame" x="7" y="0.0" width="244" height="32"/>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="32" id="4iC-LB-Qop"/>
                                                                                 </constraints>
                                                                             </stackView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="5Zw-Tq-WtP" firstAttribute="leading" secondItem="bkm-CQ-bTZ" secondAttribute="leading" constant="7" id="EdG-zs-V4b"/>
                                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Zw-Tq-WtP" secondAttribute="trailing" id="dZL-FG-moW"/>
@@ -331,11 +369,11 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="256" verticalHuggingPriority="256" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SD-2F-D0A">
                                                                                 <rect key="frame" x="7" y="3" width="244" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="6SD-2F-D0A" secondAttribute="trailing" id="OWS-4b-74H"/>
                                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6SD-2F-D0A" secondAttribute="bottom" id="fhN-zf-enD"/>
@@ -366,13 +404,13 @@
                                                                                     <constraint firstAttribute="height" constant="23" id="8Dd-mO-bOf"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="Y1Q-OS-PCE" secondAttribute="bottom" id="NsX-uR-YUV"/>
                                                                     <constraint firstItem="Y1Q-OS-PCE" firstAttribute="leading" secondItem="inY-3g-1vh" secondAttribute="leading" id="h9k-hB-9A1"/>
@@ -392,13 +430,13 @@
                                                                                     <constraint firstAttribute="height" constant="23" id="Z86-eQ-WEZ"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="cmN-4h-V3S" firstAttribute="leading" secondItem="sFU-RE-OS7" secondAttribute="leading" id="JwE-u4-6pI"/>
                                                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cmN-4h-V3S" secondAttribute="bottom" id="Kjp-6H-LGm"/>
@@ -435,7 +473,7 @@
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="wPy-uk-OUW" secondAttribute="trailing" constant="20" id="6Oc-vc-YrB"/>
                                                                     <constraint firstItem="wPy-uk-OUW" firstAttribute="leading" secondItem="AmO-OS-KPS" secondAttribute="leading" constant="20" id="L0x-kK-HZT"/>
@@ -444,18 +482,19 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="p8o-tf-eVU"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="4k2-iZ-gOC" firstAttribute="top" secondItem="okD-IK-Xaw" secondAttribute="bottom" id="bpC-zf-3va"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ae2-lO-E5s" secondAttribute="trailing" id="A5U-bs-Fci"/>
                                             <constraint firstAttribute="bottom" secondItem="ae2-lO-E5s" secondAttribute="bottom" id="CvT-Jw-OKX"/>
@@ -465,7 +504,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1Yy-pz-NmH" secondAttribute="trailing" id="7My-P5-WAe"/>
                                     <constraint firstItem="1Yy-pz-NmH" firstAttribute="top" secondItem="oHD-ad-ZV6" secondAttribute="top" id="A1e-0y-SR9"/>
@@ -475,7 +514,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oHD-ad-ZV6" firstAttribute="top" secondItem="8ob-tG-A2G" secondAttribute="top" id="NRG-yJ-VYw"/>
@@ -487,7 +526,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fu8-k4-bqy"/>
                     <connections>
-                        <outlet property="backgroundImage" destination="ljZ-zl-QLW" id="ciD-o2-AeH"/>
+                        <outlet property="backgroundImage" destination="ljZ-zl-QLW" id="leY-Lh-Nwf"/>
                         <outlet property="dateLabel" destination="Zhb-RG-7nD" id="5gA-01-an3"/>
                         <outlet property="genresStackView" destination="5Zw-Tq-WtP" id="7ea-QF-j1G"/>
                         <outlet property="imdbButton" destination="wPy-uk-OUW" id="qLT-7m-1I0"/>
@@ -524,17 +563,17 @@
                                     <constraint firstAttribute="height" constant="63" id="3RY-c8-vIt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-g5-J3H">
                                 <rect key="frame" x="17" y="137" width="380" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NGd-li-T7c" firstAttribute="trailing" secondItem="ofb-g5-J3H" secondAttribute="trailing" constant="17" id="21G-ld-480"/>
                             <constraint firstItem="NGd-li-T7c" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ofb-g5-J3H" secondAttribute="bottom" id="FIv-mx-bmR"/>
@@ -564,6 +603,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fdo-gl-OVI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -572,14 +614,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euo-ND-6Sq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="107"/>
+            <point key="canvasLocation" x="-1388" y="64"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1nC-bO-EbI"/>
-        <segue reference="FZR-fq-Mjo"/>
+        <segue reference="KQO-gO-V1S"/>
+        <segue reference="cxN-qF-gnl"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" name="textColor"/>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
@@ -587,6 +629,12 @@
         <image name="imdb" width="512" height="512"/>
         <image name="netflix" width="1801" height="756"/>
         <image name="obss-logo.png" width="96" height="33.840000152587891"/>
-        <image name="unlike_button" width="1000" height="953.5"/>
+        <image name="star" width="256" height="256"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

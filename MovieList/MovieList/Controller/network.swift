@@ -11,7 +11,7 @@ import Foundation
 class Network {
     
     static let shared = Network()
-    private let apiKey: String = "9de12758de4f4da163fb136f63b0bf58ooo"
+    private let apiKey: String = "9de12758de4f4da163fb136f63b0bf58"
     private let language: String = "en-US"
     
     func getPopularMovies(_ pageNo: Int, completion: @escaping ((Result<MovieResults, ApıError>) -> Void)) {

@@ -72,7 +72,7 @@ class DetailMovieViewController: UIViewController {
     }
     
     
-    var movie:Movie?
+    var movie:Movie? 
     
     var indexPath: IndexPath = [0,0]
     
@@ -89,7 +89,7 @@ class DetailMovieViewController: UIViewController {
                 likeButton.setImage(image, for: .normal)
             }
         } else {
-            if let image = UIImage(named: "unlike_button.png") {
+            if let image = UIImage(named: "star.png") {
                 likeButton.setImage(image, for: .normal)
             }
         }
@@ -102,6 +102,12 @@ class DetailMovieViewController: UIViewController {
     var imdbURL: URL?
     
     let imageURLInitial: String = "https://image.tmdb.org/t/p/w500"
+    
+    let notFoundImage: String = "https://i1.wp.com/saedx.com/blog/wp-content/uploads/2019/01/saedx-blog-featured-70.jpg"
+    
+    let defaultText: String = "??"
+    
+    let defaultInt: Int = 999
     
     var movieID: Int = 0
     
@@ -136,54 +142,65 @@ class DetailMovieViewController: UIViewController {
     
     func setVariables(){
         if let details = self.details {
+            
+
             if let backgroundURL = details.backgroundImage {
                 self.backgroundImage.sd_setImage(with: URL(string: "\(self.imageURLInitial)\(backgroundURL)"), completed: nil)
             }
-            if let title = details.title {
-                self.titleLabel.text = title
+            else{
+                self.backgroundImage.sd_setImage(with: URL(string: self.notFoundImage), completed: nil)
             }
-            if let date = details.releaseDate {
-                self.dateLabel.text = date
-            }
-            if let runTime = details.runtime {
-                self.runTimeLabel.text = "\(runTime)"
-            }
-            if let lan = details.language {
-                self.languageLabel.text = lan
-            }
-            if let rate = details.rate {
-                self.rateLabel.text = "\(rate)"
-            }
+            
+            
+            
+            self.titleLabel.text = details.title ?? self.defaultText
+            
+            
+            self.dateLabel.text = details.releaseDate ?? self.defaultText
+            
+        
+            self.runTimeLabel.text = "\(details.runtime ?? self.defaultInt)"
+            
+            
+            self.languageLabel.text = details.language ?? self.defaultText
+            
+            
+            self.rateLabel.text = "\(details.rate ?? Double(self.defaultInt))"
+            
+            
             if let posterImageUrl = details.posterImage {
                 self.mainImage.sd_setImage(with: URL(string: "\(self.imageURLInitial)\(posterImageUrl)"), completed: nil)
             }
+            else{
+                self.backgroundImage.sd_setImage(with: URL(string: self.notFoundImage), completed: nil)
+            }
             
+            self.genresStackView.spacing = 11
             for genre in details.genres ?? []{
                 let label = UILabel()
-                let message = genre.name
+                let message = " \(genre.name ?? "") "
                 
                 label.text = message
                 label.numberOfLines = 1
                 label.adjustsFontSizeToFitWidth = true
-                
-                
-                
                 label.textAlignment = .left
                 label.text = message
-                label.textColor = .white
-                label.backgroundColor = .black
-                
+                label.backgroundColor = UIColor(named: "backgroundColor")
+                label.textColor = UIColor(named: "textColor")
+                label.layer.borderWidth = 1.0
+                label.layer.borderColor = UIColor(named: "textColor")?.cgColor
                 label.font = label.font.withSize(17)
-                label.frame = CGRect(x:0,y:0,width:label.intrinsicContentSize.width+7,height:label.intrinsicContentSize.height+7)
                 self.genresStackView.addArrangedSubview(label)
-                self.genresStackView.spacing = 7
             }
+            
+            
             if let overview = details.overview {
                 self.overview.text = overview
             }
             for producer in details.productionCompanies ?? [] {
                 let label = UILabel()
-                label.textColor = .white
+                label.backgroundColor = UIColor(named: "backgroundColor")
+                label.textColor = UIColor(named: "textColor")
                 label.text = "   \(producer.name ?? " ")"
                 label.textAlignment = .center
                 self.producersStackView.addArrangedSubview(label)
@@ -191,7 +208,8 @@ class DetailMovieViewController: UIViewController {
             
             for spokenLanguages in details.spokenLanguages ?? [] {
                 let label = UILabel()
-                label.textColor = .white
+                label.backgroundColor = UIColor(named: "backgroundColor")
+                label.textColor = UIColor(named: "textColor")
                 label.text = spokenLanguages.name
                 label.textAlignment = .center
                 self.spokenLanguagesStackView.addArrangedSubview(label)
