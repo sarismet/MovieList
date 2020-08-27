@@ -15,18 +15,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="obss-logo" translatesAutoresizingMaskIntoConstraints="NO" id="mZO-mT-Yf4">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="5Jb-Ga-8ji"/>
-                                    <constraint firstAttribute="width" constant="240" id="Fj0-wu-zTM"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openningBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-V6-TZS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.72543183775081466" blue="0.046000842321805235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mZO-mT-Yf4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2Wf-it-11f"/>
-                            <constraint firstItem="mZO-mT-Yf4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5Bx-ZX-bPd"/>
+                            <constraint firstItem="GLH-V6-TZS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Sg-KX-ffV"/>
+                            <constraint firstItem="GLH-V6-TZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B35-va-cf8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GLH-V6-TZS" secondAttribute="bottom" id="aQz-IY-Cgd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GLH-V6-TZS" secondAttribute="trailing" id="jqv-xW-4k6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="obss-logo" width="133.33332824707031" height="47"/>
+        <image name="openningBackground" width="3051" height="3051"/>
     </resources>
 </document>

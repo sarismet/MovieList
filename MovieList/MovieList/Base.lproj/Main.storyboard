@@ -21,6 +21,7 @@
                         <segue destination="5yo-9y-QR6" kind="relationship" relationship="viewControllers" id="797-8e-wZS"/>
                         <segue destination="opw-VB-Kxv" kind="relationship" relationship="viewControllers" id="gXz-dR-LJU"/>
                         <segue destination="ZRU-tG-fF6" kind="relationship" relationship="viewControllers" id="hc9-pO-JCX"/>
+                        <segue destination="7i7-Dc-2Mg" kind="relationship" relationship="viewControllers" id="lhf-zQ-zM4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rt-PJ-Jzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,7 +58,10 @@
                                                         <rect key="frame" x="0.0" y="173" width="207" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="tintColor" name="textColor"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Popular Movies"/>
+                                                        <connections>
+                                                            <segue destination="fEw-Sq-GNN" kind="show" id="yf9-S3-aBh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -88,7 +92,10 @@
                                                         <rect key="frame" x="0.0" y="173" width="207" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="tintColor" name="textColor"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Favorite Movies"/>
+                                                        <connections>
+                                                            <segue destination="WhQ-KW-FHu" kind="show" id="gAf-fH-Utr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -114,11 +121,44 @@
                                     <constraint firstItem="lMc-E0-Yot" firstAttribute="top" secondItem="U69-SC-sMv" secondAttribute="top" id="yBa-ZM-gML"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auG-CU-BEd">
+                                <rect key="frame" x="103" y="429" width="207" height="207"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPg-yb-Cyc">
+                                        <rect key="frame" x="17" y="7" width="173" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button" image="actor"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp2-HU-N23">
+                                        <rect key="frame" x="0.0" y="157" width="207" height="50"/>
+                                        <state key="normal" title="Actors">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" name="textColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mPg-yb-Cyc" secondAttribute="trailing" constant="17" id="7k9-sj-T4e"/>
+                                    <constraint firstItem="Lp2-HU-N23" firstAttribute="leading" secondItem="auG-CU-BEd" secondAttribute="leading" id="8Ux-SG-ckk"/>
+                                    <constraint firstItem="mPg-yb-Cyc" firstAttribute="leading" secondItem="auG-CU-BEd" secondAttribute="leading" constant="17" id="Jm9-4Q-6aD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lp2-HU-N23" secondAttribute="bottom" id="Pje-7w-kAk"/>
+                                    <constraint firstItem="mPg-yb-Cyc" firstAttribute="top" secondItem="auG-CU-BEd" secondAttribute="top" constant="7" id="TtR-k0-9q3"/>
+                                    <constraint firstAttribute="width" constant="207" id="bmZ-9i-zYz"/>
+                                    <constraint firstAttribute="height" constant="207" id="cOy-ZT-20F"/>
+                                    <constraint firstItem="Lp2-HU-N23" firstAttribute="top" secondItem="mPg-yb-Cyc" secondAttribute="bottom" id="nfy-K1-QyW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lp2-HU-N23" secondAttribute="trailing" id="un9-Tc-Ken"/>
+                                    <constraint firstAttribute="bottom" secondItem="mPg-yb-Cyc" secondAttribute="bottom" constant="50" id="xP4-Xt-R9S"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U69-SC-sMv" secondAttribute="trailing" id="ElH-lw-Aqv"/>
+                            <constraint firstItem="auG-CU-BEd" firstAttribute="top" secondItem="U69-SC-sMv" secondAttribute="bottom" constant="17" id="K5c-mt-GUh"/>
                             <constraint firstItem="U69-SC-sMv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S9e-rR-yL0"/>
+                            <constraint firstItem="auG-CU-BEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="VLy-On-QeR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="auG-CU-BEd" secondAttribute="trailing" constant="104" id="cEY-DV-jrs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U69-SC-sMv" secondAttribute="bottom" constant="401" id="eBn-KE-vu0"/>
                             <constraint firstItem="U69-SC-sMv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="101" id="wgB-rp-jI8"/>
                         </constraints>
@@ -129,6 +169,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1388.4057971014495" y="1108.9285714285713"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GVe-fU-yrU">
+            <objects>
+                <viewController id="GaI-Zr-pOz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LH0-XV-KCN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Np-fE-bgG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Np-fE-bgG" firstAttribute="leading" secondItem="cSj-7O-SXE" secondAttribute="leading" id="9Tz-8k-rT8"/>
+                            <constraint firstItem="7Np-fE-bgG" firstAttribute="top" secondItem="cSj-7O-SXE" secondAttribute="top" id="NQx-xW-z1m"/>
+                            <constraint firstItem="cSj-7O-SXE" firstAttribute="bottom" secondItem="7Np-fE-bgG" secondAttribute="bottom" id="YEd-FF-4V3"/>
+                            <constraint firstItem="cSj-7O-SXE" firstAttribute="trailing" secondItem="7Np-fE-bgG" secondAttribute="trailing" id="fCS-MU-eOg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cSj-7O-SXE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Kl-IU-8zH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVO-MC-sOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3968" y="2188"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="SLg-yq-GQ0">
@@ -169,7 +237,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKk-c6-8Is" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="1342"/>
+            <point key="canvasLocation" x="1567" y="2083"/>
+        </scene>
+        <!--Actors-->
+        <scene sceneID="OuW-zn-gui">
+            <objects>
+                <navigationController id="7i7-Dc-2Mg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Actors" image="person.fill" catalog="system" id="qcW-Du-XMK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VEM-46-TDC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GaI-Zr-pOz" kind="show" id="Sne-SJ-RVa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diN-lN-ULZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3968" y="1339"/>
         </scene>
         <!--Item-->
         <scene sceneID="NYd-a2-pml">
@@ -670,16 +755,18 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="c3c-uX-OuH"/>
-        <segue reference="YAP-6a-et3"/>
+        <segue reference="cxN-qF-gnl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="textColor"/>
     <resources>
         <image name="Favorite" width="256" height="256"/>
+        <image name="actor" width="256" height="256"/>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="imdb" width="512" height="512"/>
         <image name="netflix" width="1801" height="756"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="popular" width="256" height="256"/>
         <image name="star" width="256" height="256"/>
         <namedColor name="backgroundColor">
