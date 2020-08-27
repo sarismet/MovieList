@@ -11,9 +11,9 @@ import Foundation
 struct FailureError: Codable, Error, LocalizedError {
     let statusMassage: String?
     let statusCode: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case statusMassage = "status_message", statusCode = "status_code"
     }
-    
+
 }

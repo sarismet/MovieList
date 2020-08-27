@@ -9,33 +9,31 @@
 import Foundation
 
 class MovieController {
-    
+
     static let shared = MovieController()
-    
-    private var popularMovies: [Int:Movie] = [:]
-    
-    
-    func getTheMovie(_ pageNo: Int) -> Movie {
-        return self.popularMovies[pageNo]! //HELP
+
+    private var popularMovies: [Int: Movie] = [:]
+
+    func getTheMovie(_ pageNo: Int) -> Movie? {
+        return self.popularMovies[pageNo] //HELP
     }
-    
+
     func addPopularMovies(_ newMovieList: [Movie]) {
-        
+
         for movie in newMovieList {
             if let theID = movie.id {
                 self.popularMovies[theID] = movie
             }
-            
+
         }
     }
-    
-    func getLoad(){
-        
+
+    func getLoad() {
+
     }
-    
-    
+
     func getPopularMovies() -> [Movie] {
         return Array(self.popularMovies.values)
     }
-    
+
 }

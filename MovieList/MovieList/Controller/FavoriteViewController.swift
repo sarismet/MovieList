@@ -8,11 +8,10 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
-    
-    
+class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
+
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
-        
+
         print("indexPath \(indexPath)")
         if !FavoriMoviesController.shared.bringTheAction(theMovie) {
             self.movies.remove(at: indexPath.row)
@@ -20,12 +19,11 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
              tableView.deleteRows(at: [indexPath], with: .automatic)
              tableView.endUpdates()*/
         }
-        
+
     }
-    
-    
+
     @IBOutlet weak var searchBar: UISearchBar!
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -36,81 +34,80 @@ class FavoriteViewController: UIViewController , UITableViewDataSource, UITableV
             tableView.keyboardDismissMode = .onDrag
         }
     }
-    
-    
+
     private var movies: [Movie] = [] {
         didSet {
             self.selectMovies = movies
             tableView.reloadData()
         }
     }
-    
+
     private var selectMovies: [Movie] = []
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.selectMovies.count
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250.0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.delegate = self
-        cell.configure(selectMovies[indexPath.row],indexPath)
+        cell.configure(selectMovies[indexPath.row], indexPath)
         return cell
-        
+
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as! DetailMovieViewController
-        vc.delegate = self
-        vc.configure(selectMovies[indexPath.row],indexPath)
-        navigationController?.pushViewController(vc, animated: true)
+        if let viewC = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailMovieViewController.self)) as? DetailMovieViewController {
+            viewC.delegate = self
+            viewC.configure(selectMovies[indexPath.row], indexPath)
+            navigationController?.pushViewController(viewC, animated: true)
+        }
+
     }
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         self.selectMovies = []
-        
+
         if searchText == "" {
             self.selectMovies = self.movies
         } else {
-            
+
             self.selectMovies = self.movies.filter({ $0.title?.range(of: searchText, options: .caseInsensitive, locale: Locale.current) != nil})
         }
-        
+
         self.tableView.reloadData()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+
         self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title = "Favorite Movies"
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("favorities view did load")
         self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
         // Do any additional setup after loading the view.
     }
-    
-    
-    
+
 }

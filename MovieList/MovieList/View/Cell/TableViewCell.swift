@@ -14,28 +14,28 @@ protocol TableViewCellDelegate: AnyObject {
 }
 
 class TableViewCell: UITableViewCell {
-      
+
     @IBOutlet weak var likeButton: UIButton!
-    
+
     @IBAction func likeButtonAction() {
         if let movie = self.movie {
-            self.delegate?.didPressButton(movie,self.indexPath)
+            self.delegate?.didPressButton(movie, self.indexPath)
         }
     }
-    
+
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     @IBOutlet weak var overviewLabel: UILabel!
-    
+
     @IBOutlet weak var rateLabel: UILabel!
-    
+
     @IBOutlet weak var imagePart: UIImageView!
-    
+
     weak var delegate: TableViewCellDelegate?
-    
-    var indexPath: IndexPath = [0,0]
-    
-    var isLiked:Bool {
+
+    var indexPath: IndexPath = [0, 0]
+
+    var isLiked: Bool {
         get {
             if let movie = self.movie {
                return FavoriMoviesController.shared.isFavorite(movie)
@@ -43,28 +43,27 @@ class TableViewCell: UITableViewCell {
             return false
         }
     }
-    
+
     var movieID: Int = 0
-    
+
     var movie: Movie? {
-        
+
         didSet {
             if let theMovie = movie {
                 self.movieID = theMovie.id ?? 0
                 self.titleLabel.text = theMovie.title
                 self.overviewLabel.text = theMovie.overview
                 self.rateLabel.text = "Rate : \(theMovie.rate ?? 0.0)/10"
-                self.imagePart?.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(theMovie.poster_path ?? "")"), completed: nil)
+                self.imagePart?.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(theMovie.posterPath ?? "")"), completed: nil)
                 self.setLikeButton()
             }
 
-
         }
     }
-    
-    func setLikeButton(){
+
+    func setLikeButton() {
         if self.isLiked {
-            if let image = UIImage(named: "favFilled.png") {
+            if let image = UIImage(named: "like_button.png") {
                 likeButton.setImage(image, for: .normal)
             }
         } else {
@@ -74,25 +73,23 @@ class TableViewCell: UITableViewCell {
         }
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         //self.titleLabel.numberOfLines = 0
         //self.titleLabel.adjustsFontSizeToFitWidth = true
-        
+
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     func configure(_ theMovie: Movie, _ indexPath: IndexPath) {
         self.movie = theMovie
         self.indexPath = indexPath
         self.setLikeButton()
         //print("configure is called")
     }
-    
-    
+
 }

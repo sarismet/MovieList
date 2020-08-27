@@ -7,4 +7,5 @@ target 'MovieList' do
 
   # Pods for MovieList
   pod 'SDWebImage', '~> 5.0'
+  pod 'SwiftLint'
 end

@@ -9,10 +9,8 @@
 import Foundation
 
 struct FavoritesModel: Codable {
-    
+
     var favorites: [Movie] = []
-    var isFavoried: [Int:Bool] = [-1:false]
-    
-    
+    var isFavoried: [Int: Bool] = [-1: false]
 
 }

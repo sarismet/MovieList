@@ -9,7 +9,7 @@
 import Foundation
 
 struct MovieDetails: Codable {
-    
+
     let backgroundImage: String?
     let genres: [Genre]?
     let netflixURL: URL?
@@ -25,15 +25,12 @@ struct MovieDetails: Codable {
     let tagline: String?
     let title: String?
     let rate: Double?
-    
-    
-    
+
     enum CodingKeys: String, CodingKey {
         case overview, genres, runtime, tagline, title, id
         case language = "original_language", backgroundImage = "backdrop_path", netflixURL = "homepage", imdbID = "imdb_id"
         case posterImage = "poster_path", productionCompanies = "production_companies", releaseDate = "release_date"
         case rate = "vote_average", spokenLanguages = "spoken_languages"
     }
-    
-}
 
+}

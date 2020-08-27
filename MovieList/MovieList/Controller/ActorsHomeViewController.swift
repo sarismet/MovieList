@@ -9,17 +9,16 @@
 import UIKit
 
 class ActorsHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    var Actors: [Actor] = []
-    
+    var actors: [Actor] = []
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.Actors.count
+        return self.actors.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         return cell
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
