@@ -35,6 +35,7 @@
 		ED7534AD24EEF9AC00A4F3DF /* FavoriMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */; };
 		ED87108F24E91AC4000B2C42 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87108E24E91AC4000B2C42 /* DetailMovieViewController.swift */; };
 		ED89CDC224F7DAED005524FC /* ActorsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED89CDC124F7DAED005524FC /* ActorsHomeViewController.swift */; };
+		ED89CDC424F7DC32005524FC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED89CDC324F7DC32005524FC /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriMoviesController.swift; sourceTree = "<group>"; };
 		ED87108E24E91AC4000B2C42 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		ED89CDC124F7DAED005524FC /* ActorsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsHomeViewController.swift; sourceTree = "<group>"; };
+		ED89CDC324F7DC32005524FC /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				ED06D17724F00A700079AF17 /* MovieDetails.swift */,
 				ED3469D024F2CA99002B4C0C /* FavoritesModel.swift */,
 				ED5D194124F4EF7E002F70DF /* FailureError.swift */,
+				ED89CDC324F7DC32005524FC /* File.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				ED3469D124F2CA99002B4C0C /* FavoritesModel.swift in Sources */,
 				ED1BC0F524E1BE2900426EB8 /* ViewController.swift in Sources */,
 				ED23BDFE24EC5B6B0015DFC2 /* Producer.swift in Sources */,
+				ED89CDC424F7DC32005524FC /* File.swift in Sources */,
 				ED1BC10C24E1C4FF00426EB8 /* PopularViewController.swift in Sources */,
 				ED23BDFC24EC5AEF0015DFC2 /* Genre.swift in Sources */,
 				ED7534AD24EEF9AC00A4F3DF /* FavoriMoviesController.swift in Sources */,

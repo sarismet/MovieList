@@ -39,37 +39,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U69-SC-sMv">
                                 <rect key="frame" x="0.0" y="189" width="414" height="223"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMc-E0-Yot">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="223"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="lMc-E0-Yot">
+                                        <rect key="frame" x="17" y="0.0" width="380" height="223"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6FH-Wc-bWo">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="223"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="184.5" height="223"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y6-3s-1LI">
-                                                        <rect key="frame" x="37" y="17" width="133" height="156"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="17" y="17" width="150.5" height="156"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="textColor"/>
-                                                        <state key="normal" title="Button" image="popular"/>
+                                                        <state key="normal" title="Button" image="popularsIcon"/>
                                                         <connections>
-                                                            <segue destination="fEw-Sq-GNN" kind="show" id="c3c-uX-OuH"/>
+                                                            <segue destination="fEw-Sq-GNN" kind="show" id="G1E-Is-ZXt"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1p-Fm-P8b">
-                                                        <rect key="frame" x="0.0" y="173" width="207" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <rect key="frame" x="0.0" y="173" width="184.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="textColor"/>
                                                         <state key="normal" title="Popular Movies"/>
                                                         <connections>
-                                                            <segue destination="fEw-Sq-GNN" kind="show" id="yf9-S3-aBh"/>
+                                                            <segue destination="fEw-Sq-GNN" kind="show" id="Z0u-Xm-paW"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" name="viewbackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="1y6-3s-1LI" secondAttribute="bottom" constant="50" id="5xm-A2-MAq"/>
-                                                    <constraint firstItem="1y6-3s-1LI" firstAttribute="leading" secondItem="6FH-Wc-bWo" secondAttribute="leading" constant="37" id="IY2-sX-ofc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1y6-3s-1LI" secondAttribute="trailing" constant="37" id="KkP-Mg-HsT"/>
-                                                    <constraint firstAttribute="width" constant="207" id="YLX-Kf-jPx"/>
+                                                    <constraint firstItem="1y6-3s-1LI" firstAttribute="leading" secondItem="6FH-Wc-bWo" secondAttribute="leading" constant="17" id="IY2-sX-ofc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1y6-3s-1LI" secondAttribute="trailing" constant="17" id="KkP-Mg-HsT"/>
                                                     <constraint firstItem="K1p-Fm-P8b" firstAttribute="leading" secondItem="6FH-Wc-bWo" secondAttribute="leading" id="bX8-fb-71J"/>
                                                     <constraint firstItem="1y6-3s-1LI" firstAttribute="top" secondItem="6FH-Wc-bWo" secondAttribute="top" constant="17" id="cnH-sP-eEW"/>
                                                     <constraint firstAttribute="trailing" secondItem="K1p-Fm-P8b" secondAttribute="trailing" id="mDE-AR-jhQ"/>
@@ -78,19 +77,19 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0N-oY-ea1">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="223"/>
+                                                <rect key="frame" x="195.5" y="0.0" width="184.5" height="223"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOq-4f-NFf">
-                                                        <rect key="frame" x="17" y="7" width="173" height="166"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button" image="Favorite"/>
+                                                        <rect key="frame" x="17" y="7" width="150.5" height="166"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button" image="favoritesIcon"/>
                                                         <connections>
                                                             <segue destination="WhQ-KW-FHu" kind="show" id="YAP-6a-et3"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-6Z-42f">
-                                                        <rect key="frame" x="0.0" y="173" width="207" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <rect key="frame" x="0.0" y="173" width="184.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="textColor"/>
                                                         <state key="normal" title="Favorite Movies"/>
                                                         <connections>
@@ -98,7 +97,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" name="viewbackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="YOq-4f-NFf" secondAttribute="bottom" constant="50" id="78G-pN-iW3"/>
                                                     <constraint firstAttribute="bottom" secondItem="a3r-6Z-42f" secondAttribute="bottom" id="AsC-BN-DAZ"/>
@@ -113,38 +112,45 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="lMc-E0-Yot" secondAttribute="trailing" id="7dI-66-LRs"/>
-                                    <constraint firstItem="lMc-E0-Yot" firstAttribute="leading" secondItem="U69-SC-sMv" secondAttribute="leading" id="ebM-Kd-TVi"/>
+                                    <constraint firstAttribute="trailing" secondItem="lMc-E0-Yot" secondAttribute="trailing" constant="17" id="7dI-66-LRs"/>
+                                    <constraint firstItem="lMc-E0-Yot" firstAttribute="leading" secondItem="U69-SC-sMv" secondAttribute="leading" constant="17" id="ebM-Kd-TVi"/>
                                     <constraint firstAttribute="bottom" secondItem="lMc-E0-Yot" secondAttribute="bottom" id="puT-Lm-2aF"/>
                                     <constraint firstItem="lMc-E0-Yot" firstAttribute="top" secondItem="U69-SC-sMv" secondAttribute="top" id="yBa-ZM-gML"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auG-CU-BEd">
-                                <rect key="frame" x="103" y="429" width="207" height="207"/>
+                                <rect key="frame" x="115" y="429" width="184" height="207"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPg-yb-Cyc">
-                                        <rect key="frame" x="17" y="7" width="173" height="150"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="37" y="7" width="110" height="150"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="actor"/>
+                                        <connections>
+                                            <segue destination="GaI-Zr-pOz" kind="show" id="RRX-jR-nzD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp2-HU-N23">
-                                        <rect key="frame" x="0.0" y="157" width="207" height="50"/>
+                                        <rect key="frame" x="0.0" y="157" width="184" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Actors">
                                             <color key="titleColor" name="textColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="GaI-Zr-pOz" kind="show" id="PYG-D6-eZI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="tintColor" name="textColor"/>
+                                <color key="backgroundColor" name="viewbackground"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mPg-yb-Cyc" secondAttribute="trailing" constant="17" id="7k9-sj-T4e"/>
+                                    <constraint firstAttribute="trailing" secondItem="mPg-yb-Cyc" secondAttribute="trailing" constant="37" id="7k9-sj-T4e"/>
                                     <constraint firstItem="Lp2-HU-N23" firstAttribute="leading" secondItem="auG-CU-BEd" secondAttribute="leading" id="8Ux-SG-ckk"/>
-                                    <constraint firstItem="mPg-yb-Cyc" firstAttribute="leading" secondItem="auG-CU-BEd" secondAttribute="leading" constant="17" id="Jm9-4Q-6aD"/>
+                                    <constraint firstItem="mPg-yb-Cyc" firstAttribute="leading" secondItem="auG-CU-BEd" secondAttribute="leading" constant="37" id="Jm9-4Q-6aD"/>
                                     <constraint firstAttribute="bottom" secondItem="Lp2-HU-N23" secondAttribute="bottom" id="Pje-7w-kAk"/>
                                     <constraint firstItem="mPg-yb-Cyc" firstAttribute="top" secondItem="auG-CU-BEd" secondAttribute="top" constant="7" id="TtR-k0-9q3"/>
-                                    <constraint firstAttribute="width" constant="207" id="bmZ-9i-zYz"/>
+                                    <constraint firstAttribute="width" constant="184" id="bmZ-9i-zYz"/>
                                     <constraint firstAttribute="height" constant="207" id="cOy-ZT-20F"/>
                                     <constraint firstItem="Lp2-HU-N23" firstAttribute="top" secondItem="mPg-yb-Cyc" secondAttribute="bottom" id="nfy-K1-QyW"/>
                                     <constraint firstAttribute="trailing" secondItem="Lp2-HU-N23" secondAttribute="trailing" id="un9-Tc-Ken"/>
@@ -152,19 +158,25 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U69-SC-sMv" secondAttribute="trailing" id="ElH-lw-Aqv"/>
                             <constraint firstItem="auG-CU-BEd" firstAttribute="top" secondItem="U69-SC-sMv" secondAttribute="bottom" constant="17" id="K5c-mt-GUh"/>
                             <constraint firstItem="U69-SC-sMv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S9e-rR-yL0"/>
-                            <constraint firstItem="auG-CU-BEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="VLy-On-QeR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="auG-CU-BEd" secondAttribute="trailing" constant="104" id="cEY-DV-jrs"/>
+                            <constraint firstItem="auG-CU-BEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="VLy-On-QeR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="auG-CU-BEd" secondAttribute="trailing" constant="115" id="cEY-DV-jrs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U69-SC-sMv" secondAttribute="bottom" constant="401" id="eBn-KE-vu0"/>
                             <constraint firstItem="U69-SC-sMv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="101" id="wgB-rp-jI8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aOU-gf-NVz"/>
+                    <connections>
+                        <outlet property="actors" destination="auG-CU-BEd" id="WXf-Zt-RFI"/>
+                        <outlet property="favoriteView" destination="s0N-oY-ea1" id="TV3-Ko-9IU"/>
+                        <outlet property="popularView" destination="6FH-Wc-bWo" id="TyT-32-LxN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,11 +187,11 @@
             <objects>
                 <viewController id="GaI-Zr-pOz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LH0-XV-KCN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Np-fE-bgG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -754,26 +766,30 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c3c-uX-OuH"/>
-        <segue reference="cxN-qF-gnl"/>
+        <segue reference="Z0u-Xm-paW"/>
+        <segue reference="gAf-fH-Utr"/>
+        <segue reference="PYG-D6-eZI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="textColor"/>
     <resources>
-        <image name="Favorite" width="256" height="256"/>
         <image name="actor" width="256" height="256"/>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="favoritesIcon" width="176" height="239"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="imdb" width="512" height="512"/>
         <image name="netflix" width="1801" height="756"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="popular" width="256" height="256"/>
+        <image name="popularsIcon" width="256" height="256"/>
         <image name="star" width="256" height="256"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewbackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
