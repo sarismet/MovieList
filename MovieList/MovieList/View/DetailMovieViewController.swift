@@ -46,6 +46,9 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var lastStackView: UIStackView!
     
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    
     @IBAction func isPressedButton() {
         if isLiked{
             self.isLiked = false
@@ -125,15 +128,35 @@ class DetailMovieViewController: UIViewController {
         if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
             self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
         }else{
+            //self.indicator.startAnimating()
             Network.shared.getDetails(movieID, completion: { (result) in
+                DispatchQueue.main.async {
                 switch result {
                 case .success(let allTheDetails):
-                    DispatchQueue.main.async {
+                    
                         self.details = allTheDetails
-                    }
+                    
                     
                 case .failure(let error):
                     print(error.errorMessage)
+                    let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                        print("Ok button tapped")
+                    })
+                    // Create Cancel button with action handlder
+                    let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (action) -> Void in
+                        print("Re-try button tapped")
+                        self.configure(movie, indexPath)
+                    }
+                    //Add OK and Cancel button to an Alert object
+                    dialogMessage.addAction(ok)
+                    dialogMessage.addAction(cancel)
+                    // Present alert message to user
+                    self.present(dialogMessage, animated: true, completion: nil)
+                    
+                }
+                    self.indicator.stopAnimating()
                 }
             })
         }
