@@ -83,14 +83,20 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-            cell.delegate = self
-            cell.configure(selectMovies[indexPath.row], indexPath)
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
+                cell.delegate = self
+                cell.configure(selectMovies[indexPath.row], indexPath)
+                return cell
+            }
+                return UITableViewCell()
+     
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
-            cell.spinner.startAnimating()
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as? LoadingTableViewCell {
+                cell.spinner.startAnimating()
+                return cell
+            }
+            return UITableViewCell()
+            
         }
 
     }

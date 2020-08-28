@@ -45,6 +45,9 @@ class DetailMovieViewController: UIViewController {
 
     @IBOutlet weak var lastStackView: UIStackView!
 
+    
+    @IBOutlet weak var loadingView: UIView!
+    
     @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     @IBAction func isPressedButton() {
@@ -127,9 +130,10 @@ class DetailMovieViewController: UIViewController {
             //self.indicator.startAnimating()
             Network.shared.getDetails(movieID, completion: { (result) in
                 DispatchQueue.main.async {
+                    
                 switch result {
                 case .success(let allTheDetails):
-
+                    self.loadingView.isHidden = true
                         self.details = allTheDetails
 
                 case .failure(let error):

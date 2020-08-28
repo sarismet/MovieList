@@ -351,9 +351,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-rc-uqL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHD-ad-ZV6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
@@ -656,18 +653,34 @@
                                     <constraint firstItem="1Yy-pz-NmH" firstAttribute="width" secondItem="oHD-ad-ZV6" secondAttribute="width" id="NFY-FC-DTN"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBN-Bm-BOw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-rc-uqL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" name="viewbackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MKa-rc-uqL" secondAttribute="trailing" id="2hv-mt-uJ9"/>
+                                    <constraint firstItem="MKa-rc-uqL" firstAttribute="leading" secondItem="nBN-Bm-BOw" secondAttribute="leading" id="3hU-aV-tMI"/>
+                                    <constraint firstItem="MKa-rc-uqL" firstAttribute="top" secondItem="nBN-Bm-BOw" secondAttribute="top" id="OY2-a0-Zjp"/>
+                                    <constraint firstAttribute="bottom" secondItem="MKa-rc-uqL" secondAttribute="bottom" id="Q99-SB-Tqo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MKa-rc-uqL" firstAttribute="leading" secondItem="8ob-tG-A2G" secondAttribute="leading" id="2cN-uM-1pl"/>
-                            <constraint firstItem="MKa-rc-uqL" firstAttribute="top" secondItem="8ob-tG-A2G" secondAttribute="top" id="9WP-cG-1hb"/>
-                            <constraint firstItem="8ob-tG-A2G" firstAttribute="trailing" secondItem="MKa-rc-uqL" secondAttribute="trailing" id="JUG-3Y-K18"/>
+                            <constraint firstItem="nBN-Bm-BOw" firstAttribute="top" secondItem="8ob-tG-A2G" secondAttribute="top" id="4uf-sr-dWr"/>
+                            <constraint firstItem="nBN-Bm-BOw" firstAttribute="leading" secondItem="8ob-tG-A2G" secondAttribute="leading" id="Leh-g7-EzU"/>
                             <constraint firstItem="oHD-ad-ZV6" firstAttribute="top" secondItem="8ob-tG-A2G" secondAttribute="top" id="NRG-yJ-VYw"/>
+                            <constraint firstItem="nBN-Bm-BOw" firstAttribute="trailing" secondItem="8ob-tG-A2G" secondAttribute="trailing" id="RKI-wK-HBA"/>
+                            <constraint firstItem="8ob-tG-A2G" firstAttribute="bottom" secondItem="nBN-Bm-BOw" secondAttribute="bottom" id="XE0-JX-60P"/>
                             <constraint firstItem="oHD-ad-ZV6" firstAttribute="bottom" secondItem="8ob-tG-A2G" secondAttribute="bottom" id="fkH-zv-uL7"/>
                             <constraint firstItem="oHD-ad-ZV6" firstAttribute="trailing" secondItem="8ob-tG-A2G" secondAttribute="trailing" id="gnE-iy-ub2"/>
                             <constraint firstItem="oHD-ad-ZV6" firstAttribute="leading" secondItem="8ob-tG-A2G" secondAttribute="leading" id="qeW-zC-hRm"/>
-                            <constraint firstItem="8ob-tG-A2G" firstAttribute="bottom" secondItem="MKa-rc-uqL" secondAttribute="bottom" id="v1s-eO-pUg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ob-tG-A2G"/>
                     </view>
@@ -677,10 +690,11 @@
                         <outlet property="dateLabel" destination="Zhb-RG-7nD" id="5gA-01-an3"/>
                         <outlet property="genresStackView" destination="5Zw-Tq-WtP" id="7ea-QF-j1G"/>
                         <outlet property="imdbButton" destination="wPy-uk-OUW" id="qLT-7m-1I0"/>
-                        <outlet property="indicator" destination="MKa-rc-uqL" id="M5G-EJ-Ti7"/>
+                        <outlet property="indicator" destination="MKa-rc-uqL" id="0Xc-uF-Zhe"/>
                         <outlet property="languageLabel" destination="SJ1-Ir-pD6" id="hH1-Gi-IC2"/>
                         <outlet property="lastStackView" destination="4k2-iZ-gOC" id="2e9-85-55B"/>
                         <outlet property="likeButton" destination="NOd-7n-mHj" id="qkJ-zf-KH9"/>
+                        <outlet property="loadingView" destination="nBN-Bm-BOw" id="xLE-bp-MBd"/>
                         <outlet property="mainImage" destination="qek-rP-ePi" id="vir-wP-arA"/>
                         <outlet property="moreInfoStackView" destination="okD-IK-Xaw" id="0ac-YH-Cem"/>
                         <outlet property="netflixButton" destination="uou-Ld-BSi" id="4Et-2F-2MV"/>
