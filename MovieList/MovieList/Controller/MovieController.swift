@@ -14,8 +14,8 @@ class MovieController {
 
     private var popularMovies: [Int: Movie] = [:]
 
-    func getTheMovie(_ pageNo: Int) -> Movie? {
-        return self.popularMovies[pageNo] //HELP
+    func getTheMovie(_ movieID: Int) -> Movie? {
+        return self.popularMovies[movieID]
     }
 
     func addPopularMovies(_ newMovieList: [Movie]) {

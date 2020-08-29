@@ -45,9 +45,8 @@ class DetailMovieViewController: UIViewController {
 
     @IBOutlet weak var lastStackView: UIStackView!
 
-    
     @IBOutlet weak var loadingView: UIView!
-    
+
     @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     @IBAction func isPressedButton() {
@@ -116,48 +115,45 @@ class DetailMovieViewController: UIViewController {
 
     weak var delegate: TableViewCellDelegate?
 
-    func configure(_ movie: Movie, _ indexPath: IndexPath) {
+    func configure() {
 
-        self.indexPath = indexPath
-        self.isLiked = FavoriMoviesController.shared.isFavorite(movie)
-        self.movieID = movie.id ?? 0
+        if let movie = MovieController.shared.getTheMovie(self.movieID) {
+            self.isLiked = FavoriMoviesController.shared.isFavorite(movie)
+                   if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
+                       self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
+                   } else {
+                       
+                       Network.shared.getDetails(movieID, completion: { (result) in
+                           DispatchQueue.main.async {
+                           switch result {
+                           case .success(let allTheDetails):
+                               self.loadingView.isHidden = true
+                                   self.details = allTheDetails
 
-        self.movie = movie
+                           case .failure(let error):
+                               print(error.errorMessage)
+                               self.indicator.startAnimating()
+                               let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
+                               // Create OK button with action handler
+                               let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
+                                   print("Ok button tapped")
+                               })
+                               // Create Cancel button with action handlder
+                               let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in
+                                   print("Re-try button tapped")
+                                   self.configure()
+                               }
+                               //Add OK and Cancel button to an Alert object
+                               dialogMessage.addAction(ok)
+                               dialogMessage.addAction(cancel)
+                               // Present alert message to user
+                               self.present(dialogMessage, animated: true, completion: nil)
 
-        if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
-            self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
-        } else {
-            //self.indicator.startAnimating()
-            Network.shared.getDetails(movieID, completion: { (result) in
-                DispatchQueue.main.async {
-                    
-                switch result {
-                case .success(let allTheDetails):
-                    self.loadingView.isHidden = true
-                        self.details = allTheDetails
-
-                case .failure(let error):
-                    print(error.errorMessage)
-                    let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
-                    // Create OK button with action handler
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
-                        print("Ok button tapped")
-                    })
-                    // Create Cancel button with action handlder
-                    let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in
-                        print("Re-try button tapped")
-                        self.configure(movie, indexPath)
-                    }
-                    //Add OK and Cancel button to an Alert object
-                    dialogMessage.addAction(ok)
-                    dialogMessage.addAction(cancel)
-                    // Present alert message to user
-                    self.present(dialogMessage, animated: true, completion: nil)
-
-                }
-                    self.indicator.stopAnimating()
-                }
-            })
+                           }
+                            self.indicator.stopAnimating()
+                           }
+                       })
+                   }
         }
 
     }
@@ -245,8 +241,7 @@ class DetailMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: lastStackView.bottomAnchor).isActive = true
-
+        self.configure()
         overview.isUserInteractionEnabled = true
 
         let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(overviewlabelClicked(_:)))

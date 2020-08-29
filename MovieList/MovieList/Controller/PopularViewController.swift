@@ -57,7 +57,9 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
         if let viewC = self.storyboard?.instantiateViewController(withIdentifier:
             String(describing: DetailMovieViewController.self)) as? DetailMovieViewController {
             viewC.delegate = self
-            viewC.configure(selectMovies[indexPath.row], indexPath)
+            viewC.movieID = selectMovies[indexPath.row].id ?? 0
+            viewC.indexPath = indexPath
+            viewC.configure()
             navigationController?.pushViewController(viewC, animated: true)
         }
     }
@@ -89,14 +91,14 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
                 return cell
             }
                 return UITableViewCell()
-     
+
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as? LoadingTableViewCell {
                 cell.spinner.startAnimating()
                 return cell
             }
             return UITableViewCell()
-            
+
         }
 
     }

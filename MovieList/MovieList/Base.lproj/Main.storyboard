@@ -658,10 +658,10 @@
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-rc-uqL">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                        <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="color" name="textColor"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" name="viewbackground"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="MKa-rc-uqL" secondAttribute="trailing" id="2hv-mt-uJ9"/>
                                     <constraint firstItem="MKa-rc-uqL" firstAttribute="leading" secondItem="nBN-Bm-BOw" secondAttribute="leading" id="3hU-aV-tMI"/>

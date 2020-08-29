@@ -19,7 +19,7 @@ class ActorsHomeViewController: UIViewController, UITableViewDataSource, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
             return cell
         }
-        
+
         return UITableViewCell()
     }
 
