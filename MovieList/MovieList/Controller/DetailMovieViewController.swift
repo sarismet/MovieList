@@ -130,17 +130,15 @@ class DetailMovieViewController: UIViewController {
                                    self.details = allTheDetails
 
                            case .failure(let error):
-                               print(error.errorMessage)
+                            print(error)
                                self.indicator.startAnimating()
                                let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
                                // Create OK button with action handler
                                let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
-                                   print("Ok button tapped")
                                 _ = self.navigationController?.popViewController(animated: true)
                                })
                                // Create Cancel button with action handlder
                                let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in
-                                   print("Re-try button tapped")
                                    self.configure()
                                }
                                //Add OK and Cancel button to an Alert object

@@ -49,15 +49,11 @@ class FavoriMoviesController {
         if let theMovie = movie, let movieID = movie?.id {
             if isFavorite(theMovie) {
                 if let index = self.favoriMovies.favorites.firstIndex(where: { $0.id == movieID}) {
-                    print("removing!!!")
                     self.favoriMovies.favorites.remove(at: index)
                     return false
-                    //self.favoriMovies.isFavoried[index] = false
                 }
             } else {
-               print("adding")
                 self.favoriMovies.favorites.append(theMovie)
-                    //self.favoriMovies.isFavoried[index] = true
                 return true
 
             }

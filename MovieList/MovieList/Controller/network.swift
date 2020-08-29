@@ -39,6 +39,19 @@ class Network {
 
         }
     }
+    
+    func getPopularActors(_ pageNo: Int, completion: @escaping ((Result<MovieResults, ApıError>) -> Void)) {
+
+        let url: String = "https://api.themoviedb.org/3/person/popular?api_key=\(self.apiKey)&language=\(language)&page=\(pageNo)"
+        if let urlForMovie = URL(string: url) {
+            var request = URLRequest(url: urlForMovie)
+            request.httpMethod = "GET"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            self.getFromApı(request, completion: completion)
+
+        }
+    }
 
     func getFromApı<T: Decodable>(_ request: URLRequest, completion: @escaping ((Result<T, ApıError>) -> Void)) {
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -51,7 +64,6 @@ class Network {
                             let result = try JSONDecoder().decode(T.self, from: data)
                             completion(.success(result))
                         } catch let error {
-                            print("error")
                             completion(.failure(ApıError.customError(message: error.localizedDescription)))
                         }
                     case 401:

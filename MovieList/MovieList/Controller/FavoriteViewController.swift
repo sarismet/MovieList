@@ -11,8 +11,6 @@ import UIKit
 class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
 
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
-
-        print("indexPath \(indexPath)")
         if !FavoriMoviesController.shared.bringTheAction(theMovie) {
             self.movies.remove(at: indexPath.row)
             /*tableView.beginUpdates()
@@ -106,7 +104,6 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("favorities view did load")
         self.movies = FavoriMoviesController.shared.getSavedFavoriMovies()
         // Do any additional setup after loading the view.
     }

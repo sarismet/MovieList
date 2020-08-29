@@ -40,8 +40,6 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
-
-        print("indexPath \(indexPath)")
         _ = FavoriMoviesController.shared.bringTheAction(theMovie)
         tableView.reloadData()
     }
@@ -134,16 +132,15 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.movies.append(contentsOf: popularMoviesResults.results ?? [])
                     self.loading = false
                 case .failure(let error):
-                    print(error.errorMessage)
                     // Create new Alert
+                    print(error)
                     let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
                     // Create OK button with action handler
                     let okey = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
-                        print("Ok button tapped")
+                         _ = self.navigationController?.popViewController(animated: true)
                     })
                     // Create Cancel button with action handlder
                     let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in
-                        print("Re-try button tapped")
                         self.loadMore()
                     }
                     //Add OK and Cancel button to an Alert object

@@ -75,9 +75,6 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.titleLabel.numberOfLines = 0
-        //self.titleLabel.adjustsFontSizeToFitWidth = true
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -89,7 +86,6 @@ class TableViewCell: UITableViewCell {
         self.movie = theMovie
         self.indexPath = indexPath
         self.setLikeButton()
-        //print("configure is called")
     }
 
 }
