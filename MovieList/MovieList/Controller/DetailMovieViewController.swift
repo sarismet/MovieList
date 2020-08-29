@@ -122,7 +122,6 @@ class DetailMovieViewController: UIViewController {
                    if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
                        self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
                    } else {
-                       
                        Network.shared.getDetails(movieID, completion: { (result) in
                            DispatchQueue.main.async {
                            switch result {
@@ -137,6 +136,7 @@ class DetailMovieViewController: UIViewController {
                                // Create OK button with action handler
                                let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
                                    print("Ok button tapped")
+                                _ = self.navigationController?.popViewController(animated: true)
                                })
                                // Create Cancel button with action handlder
                                let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in

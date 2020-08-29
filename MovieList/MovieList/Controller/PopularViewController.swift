@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
+class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
+     UISearchBarDelegate, TableViewCellDelegate {
 
     private var loading: Bool = false
     private var searching: Bool = false
@@ -32,7 +33,8 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.delegate = self
             searchBar.delegate = self
             tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-            tableView.register(UINib(nibName: "LoadingTableViewCell", bundle: nil), forCellReuseIdentifier: "LoadingTableViewCell")
+            tableView.register(UINib(nibName: "LoadingTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "LoadingTableViewCell")
             tableView.keyboardDismissMode = .onDrag
         }
     }

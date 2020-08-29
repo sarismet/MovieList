@@ -187,11 +187,11 @@
             <objects>
                 <viewController id="GaI-Zr-pOz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LH0-XV-KCN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Np-fE-bgG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -782,7 +782,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Z0u-Xm-paW"/>
         <segue reference="gAf-fH-Utr"/>
-        <segue reference="PYG-D6-eZI"/>
+        <segue reference="Sne-SJ-RVa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="textColor"/>
     <resources>
