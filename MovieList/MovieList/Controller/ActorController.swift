@@ -18,7 +18,7 @@ class ActorController {
         return self.popularActors[actorID]
     }
 
-    func addPopularMovies(_ newActorList: [Actor]) {
+    func addPopularActors(_ newActorList: [Actor]) {
 
         for actor in newActorList {
             if let theID = actor.id {

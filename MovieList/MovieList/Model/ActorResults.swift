@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct ActorResults{
-    let results:[Actor]?
+struct ActorResults: Codable {
+    let results: [Actor]?
 }

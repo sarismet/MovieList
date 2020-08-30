@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Actor {
+struct Actor: Codable {
     let name: String?
     let id: Int?
     let posterPath: String?

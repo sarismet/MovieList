@@ -11,22 +11,7 @@ import UIKit
 class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
      UISearchBarDelegate, TableViewCellDelegate {
 
-    private var loading: Bool = false
-    private var searching: Bool = false
-
-    private var pageNo: Int = 1
-
     @IBOutlet weak var searchBar: UISearchBar!
-
-    private var movies: [Movie] = [] {
-        didSet {
-            self.selectMovies = movies
-            tableView.reloadData()
-        }
-    }
-
-    private var selectMovies: [Movie] = []
-
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -38,7 +23,17 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.keyboardDismissMode = .onDrag
         }
     }
-
+    private var loading: Bool = false
+    private var searching: Bool = false
+    private var pageNo: Int = 1
+    private var movies: [Movie] = [] {
+        didSet {
+            self.selectMovies = movies
+            tableView.reloadData()
+        }
+    }
+    private var selectMovies: [Movie] = []
+    
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
         _ = FavoriMoviesController.shared.bringTheAction(theMovie)
         tableView.reloadData()
@@ -59,7 +54,6 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
             viewC.delegate = self
             viewC.movieID = selectMovies[indexPath.row].id ?? 0
             viewC.indexPath = indexPath
-            viewC.configure()
             navigationController?.pushViewController(viewC, animated: true)
         }
     }

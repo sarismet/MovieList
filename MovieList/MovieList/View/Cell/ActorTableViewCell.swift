@@ -7,13 +7,28 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ActorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterImageLabel: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
+    
+    var actor: Actor? {
+        didSet{
+            if let theActor = actor {
+                self.nameLabel.text = theActor.name ?? "??"
+                self.departmentLabel.text = theActor.department ?? "??"
+                self.rateLabel.text = "\(theActor.popularity ?? 0.0)"
+                self.posterImageLabel?.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(theActor.posterPath ?? "")"), completed: nil)
+            }
+        }
+    }
+    
+    func configure(_ theActor: Actor) {
+        self.actor = theActor
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

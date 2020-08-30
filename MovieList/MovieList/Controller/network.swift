@@ -40,7 +40,7 @@ class Network {
         }
     }
     
-    func getPopularActors(_ pageNo: Int, completion: @escaping ((Result<MovieResults, ApıError>) -> Void)) {
+    func getPopularActors(_ pageNo: Int, completion: @escaping ((Result<ActorResults, ApıError>) -> Void)) {
 
         let url: String = "https://api.themoviedb.org/3/person/popular?api_key=\(self.apiKey)&language=\(language)&page=\(pageNo)"
         if let urlForMovie = URL(string: url) {

@@ -182,33 +182,60 @@
             </objects>
             <point key="canvasLocation" x="-1388.4057971014495" y="1108.9285714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Actors Home View Controller-->
         <scene sceneID="GVe-fU-yrU">
             <objects>
-                <viewController id="GaI-Zr-pOz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActorsHomeViewController" id="GaI-Zr-pOz" customClass="ActorsHomeViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LH0-XV-KCN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Np-fE-bgG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="icF-G9-I4f">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="7Np-fE-bgG" firstAttribute="leading" secondItem="cSj-7O-SXE" secondAttribute="leading" id="9Tz-8k-rT8"/>
-                            <constraint firstItem="7Np-fE-bgG" firstAttribute="top" secondItem="cSj-7O-SXE" secondAttribute="top" id="NQx-xW-z1m"/>
+                            <constraint firstItem="7Np-fE-bgG" firstAttribute="top" secondItem="cSj-7O-SXE" secondAttribute="top" constant="50" id="NQx-xW-z1m"/>
+                            <constraint firstItem="7Np-fE-bgG" firstAttribute="top" secondItem="icF-G9-I4f" secondAttribute="bottom" id="UKQ-SE-REn"/>
                             <constraint firstItem="cSj-7O-SXE" firstAttribute="bottom" secondItem="7Np-fE-bgG" secondAttribute="bottom" id="YEd-FF-4V3"/>
                             <constraint firstItem="cSj-7O-SXE" firstAttribute="trailing" secondItem="7Np-fE-bgG" secondAttribute="trailing" id="fCS-MU-eOg"/>
+                            <constraint firstItem="icF-G9-I4f" firstAttribute="trailing" secondItem="cSj-7O-SXE" secondAttribute="trailing" id="gnn-Cf-sMM"/>
+                            <constraint firstItem="icF-G9-I4f" firstAttribute="leading" secondItem="cSj-7O-SXE" secondAttribute="leading" id="o0V-A4-oOE"/>
+                            <constraint firstItem="icF-G9-I4f" firstAttribute="top" secondItem="cSj-7O-SXE" secondAttribute="top" id="oTy-Dm-EXP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cSj-7O-SXE"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Kl-IU-8zH"/>
+                    <connections>
+                        <outlet property="searchBar" destination="icF-G9-I4f" id="K0a-6X-ZE8"/>
+                        <outlet property="tableView" destination="7Np-fE-bgG" id="mJO-Li-egj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVO-MC-sOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3968" y="2188"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="x9S-qz-OnR">
+            <objects>
+                <viewController id="iH4-hv-6y8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G7S-Wu-mXW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bIC-MQ-BEc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wy-vJ-34Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5747" y="2198"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="SLg-yq-GQ0">
@@ -782,7 +809,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Z0u-Xm-paW"/>
         <segue reference="gAf-fH-Utr"/>
-        <segue reference="Sne-SJ-RVa"/>
+        <segue reference="RRX-jR-nzD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="textColor"/>
     <resources>
