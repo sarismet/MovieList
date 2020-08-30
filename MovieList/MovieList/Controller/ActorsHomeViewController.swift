@@ -78,7 +78,13 @@ class ActorsHomeViewController: UIViewController, UITableViewDataSource, UITable
         }
 
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewC = self.storyboard?.instantiateViewController(withIdentifier:
+            String(describing: ActorDetailViewController.self)) as? ActorDetailViewController {
+            viewC.theActorID = self.selectActors[indexPath.row].id ?? 271110
+            navigationController?.pushViewController(viewC, animated: true)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             return 25.0

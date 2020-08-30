@@ -41,6 +41,7 @@
 		ED7534AD24EEF9AC00A4F3DF /* FavoriMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */; };
 		ED87108F24E91AC4000B2C42 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87108E24E91AC4000B2C42 /* DetailMovieViewController.swift */; };
 		ED89CDC224F7DAED005524FC /* ActorsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED89CDC124F7DAED005524FC /* ActorsHomeViewController.swift */; };
+		EDAC9DD224FC120E009F5CD5 /* ActorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC9DD124FC120E009F5CD5 /* ActorDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriMoviesController.swift; sourceTree = "<group>"; };
 		ED87108E24E91AC4000B2C42 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		ED89CDC124F7DAED005524FC /* ActorsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsHomeViewController.swift; sourceTree = "<group>"; };
+		EDAC9DD124FC120E009F5CD5 /* ActorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */,
 				ED89CDC124F7DAED005524FC /* ActorsHomeViewController.swift */,
 				ED6C7FB024FAEB4D007D04F5 /* ActorController.swift */,
+				EDAC9DD124FC120E009F5CD5 /* ActorDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				ED6C7FB524FAEC00007D04F5 /* ActorResults.swift in Sources */,
 				ED6C7FBC24FAEE55007D04F5 /* ActorTableViewCell.swift in Sources */,
 				ED1DE95E24F1A39D00312A12 /* FavoriteViewController.swift in Sources */,
+				EDAC9DD224FC120E009F5CD5 /* ActorDetailViewController.swift in Sources */,
 				ED1BC0F324E1BE2900426EB8 /* SceneDelegate.swift in Sources */,
 				ED87108F24E91AC4000B2C42 /* DetailMovieViewController.swift in Sources */,
 				ED06D17824F00A700079AF17 /* MovieDetails.swift in Sources */,

@@ -222,16 +222,45 @@
             </objects>
             <point key="canvasLocation" x="3968" y="2188"/>
         </scene>
-        <!--View Controller-->
+        <!--Actor Detail View Controller-->
         <scene sceneID="x9S-qz-OnR">
             <objects>
-                <viewController id="iH4-hv-6y8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActorDetailViewController" id="iH4-hv-6y8" customClass="ActorDetailViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G7S-Wu-mXW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hla-tf-QDw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Otk-4R-I2D"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9BA-YG-nMR">
+                                <rect key="frame" x="0.0" y="269" width="414" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didTabSegmentWithSegment:" destination="iH4-hv-6y8" eventType="valueChanged" id="eMO-nf-fYt"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Hla-tf-QDw" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="R8R-9D-3Db"/>
+                            <constraint firstItem="9BA-YG-nMR" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="WrN-XA-H9K"/>
+                            <constraint firstItem="Hla-tf-QDw" firstAttribute="top" secondItem="bIC-MQ-BEc" secondAttribute="top" id="YXv-oK-eca"/>
+                            <constraint firstItem="9BA-YG-nMR" firstAttribute="top" secondItem="Hla-tf-QDw" secondAttribute="bottom" id="eAJ-VG-cxr"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="9BA-YG-nMR" secondAttribute="trailing" id="mQK-aO-g3F"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="Hla-tf-QDw" secondAttribute="trailing" id="qni-KI-gEd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bIC-MQ-BEc"/>
                     </view>
+                    <connections>
+                        <outlet property="actorImage" destination="Hla-tf-QDw" id="Vm4-d4-pfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wy-vJ-34Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
