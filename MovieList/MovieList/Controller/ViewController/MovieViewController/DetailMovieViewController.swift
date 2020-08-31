@@ -58,7 +58,6 @@ class DetailMovieViewController: UIViewController {
 
         self.setLikeButton()
         if let movie = self.movie {
-            _ = FavoriMoviesController.shared.bringTheAction(movie)
             self.delegate?.didPressButton(movie, self.indexPath)
         }
     }
@@ -115,6 +114,7 @@ class DetailMovieViewController: UIViewController {
     func configure() {
 
         if let movie = MovieController.shared.getTheMovie(self.movieID) {
+            self.movie = movie
             self.isLiked = FavoriMoviesController.shared.isFavorite(movie)
                    if MovieDetailController.sharedMovieDetailController.isPresent(movieID) {
                        self.details = MovieDetailController.sharedMovieDetailController.getMovieDetail(movieID)
