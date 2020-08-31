@@ -167,9 +167,9 @@
 		ED0AB2E724FCD37D0032CCFB /* MovieModelController */ = {
 			isa = PBXGroup;
 			children = (
+				ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */,
 				ED7534A624EEF6B000A4F3DF /* MovieController.swift */,
 				ED7534AA24EEF81800A4F3DF /* MovieDetailController.swift */,
-				ED7534AC24EEF9AC00A4F3DF /* FavoriMoviesController.swift */,
 			);
 			path = MovieModelController;
 			sourceTree = "<group>";

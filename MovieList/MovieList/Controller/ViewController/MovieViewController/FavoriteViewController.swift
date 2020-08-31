@@ -97,6 +97,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title = "Favorite Movies"
+        self.tableView.reloadData()
     }
 
     override func viewDidLoad() {

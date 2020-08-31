@@ -46,6 +46,7 @@ class FavoriMoviesController {
     }
 
     func bringTheAction(_ movie: Movie?) -> Bool {
+        print("b")
         if let theMovie = movie, let movieID = movie?.id {
             if isFavorite(theMovie) {
                 if let index = self.favoriMovies.favorites.firstIndex(where: { $0.id == movieID}) {

@@ -35,7 +35,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     private var selectMovies: [Movie] = []
     
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
-        print("delegate runs")
+        print("delegate is running")
         _ = FavoriMoviesController.shared.bringTheAction(theMovie)
         tableView.reloadData()
     }
