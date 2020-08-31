@@ -11,10 +11,10 @@ import UIKit
 class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, TableViewCellDelegate {
 
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
+        print("delegate")
         if !FavoriMoviesController.shared.bringTheAction(theMovie) {
             self.movies.remove(at: indexPath.row)
         }
-
     }
 
     @IBOutlet weak var searchBar: UISearchBar!

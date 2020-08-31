@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BasicMovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var posterImage: UIImageView!
+    
+    var knownfor: KnownFor? {
+        didSet {
+            if let tknown = knownfor {
+                movieNameLabel.text = tknown.overview ?? "empty"
+                self.posterImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(tknown.posterPath ?? "")"), completed: nil)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

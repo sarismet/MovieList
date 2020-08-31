@@ -57,17 +57,13 @@ class DetailMovieViewController: UIViewController {
         }
 
         self.setLikeButton()
-        //let _ = FavoriMoviesController.shared.bringTheAction(self.movie)
         if let movie = self.movie {
             self.delegate?.didPressButton(movie, self.indexPath)
         }
-
-        // self.isLiked = isLiked == false ? true : false
     }
 
     @IBAction func netflixButtonAction(_ sender: Any) {
         UIApplication.shared.open(self.netflixURL ?? URL(string: "https://www.netflix.com/tr-en/")!)
-        //burda artık forcelayabilir miyim?
     }
 
     @IBAction func imdbButtonAction(_ sender: Any) {

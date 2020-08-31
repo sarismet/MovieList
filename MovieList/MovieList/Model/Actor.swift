@@ -14,9 +14,9 @@ struct Actor: Codable {
     let posterPath: String?
     let popularity: Double?
     let department: String?
+    let knownFor: [KnownFor]?
     enum CodingKeys: String, CodingKey {
         case id, name, popularity
-        case posterPath = "profile_path", department = "known_for_department"
-
+        case posterPath = "profile_path", department = "known_for_department", knownFor = "known_for"
     }
 }

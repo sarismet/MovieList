@@ -18,19 +18,27 @@ class ActorKnownForViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    var movies: [String] = []
-    
+    var knownInfos: [KnownFor] = []
+    var actorID: Int = 0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.movies.count
+        self.knownInfos.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BasicMovieTableViewCell", for: indexPath) as? BasicMovieTableViewCell {
-            cell.movieNameLabel.text = movies[indexPath.row]
+            cell.knownfor = knownInfos[indexPath.row]
             return cell
         }
         
         return TableViewCell()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.knownInfos = ActorController.shared.getTheActor(self.actorID)?.knownFor as! [KnownFor]
     }
     override func viewDidLoad() {
         super.viewDidLoad()

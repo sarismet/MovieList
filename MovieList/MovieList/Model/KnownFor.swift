@@ -8,13 +8,12 @@
 
 import Foundation
 
-struct KnownFor {
+struct KnownFor: Codable {
+    let id: Int
+    let overview: String?
     let posterPath: String?
-    let id: Int?
-    let title: String?
-    let rate: Double?
     enum CodingKeys: String, CodingKey {
-        case id
-        case rate = "vote_average", title = "original_title", posterPath = "poster_path"
+        case id, overview
+        case posterPath = "poster_path"
     }
 }

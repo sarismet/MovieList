@@ -27,7 +27,7 @@ class ActorDetailViewController: UIViewController {
     var theActorID: Int = 271110
     var theActor: Actor? {
         didSet {
-                    if let actor = theActor {
+            if let actor = theActor {
                 self.actorImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(actor.posterPath ?? "")"), completed: nil)
             }
         }
@@ -39,23 +39,21 @@ class ActorDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "knownForSeque"{
             let destVC = segue.destination as! ActorKnownForViewController
-            destVC.movies = ["1","2","3","4","5"]
+            destVC.actorID = self.theActor?.id ?? 2263933
         }
         else {
             let destVC = segue.destination as! ActorInfoViewController
-            destVC.t = "ismet"
+            destVC.t = "This person act in good faith"
         }
     }
-    
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.configure()
         firstView.alpha = 1
         secondView.alpha = 0
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configure()
     }
 }
