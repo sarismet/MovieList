@@ -7,13 +7,22 @@
 //
 
 import Foundation
-
+import UIKit
 import SDWebImage
 
 class ActorDetailViewController: UIViewController {
 
     @IBOutlet weak var actorImage: UIImageView!
-    @IBAction func didTabSegment(segment: UISegmentedControl) {
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBAction func switchViews(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            firstView.alpha = 1
+            secondView.alpha = 0
+        } else {
+            firstView.alpha = 0
+            secondView.alpha = 1
+        }
     }
     var theActorID: Int = 271110
     var theActor: Actor? {
@@ -23,11 +32,26 @@ class ActorDetailViewController: UIViewController {
             }
         }
     }
-    func configure(){
+    private func configure() {
         self.theActor = ActorController.shared.getTheActor(self.theActorID)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "knownForSeque"{
+            let destVC = segue.destination as! ActorKnownForViewController
+            destVC.movies = ["1","2","3","4","5"]
+        }
+        else {
+            let destVC = segue.destination as! ActorInfoViewController
+            destVC.t = "ismet"
+        }
+    }
+    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        firstView.alpha = 1
+        secondView.alpha = 0
     }
 
     override func viewDidLoad() {

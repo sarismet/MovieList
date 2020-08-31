@@ -13,9 +13,6 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     func didPressButton(_ theMovie: Movie, _ indexPath: IndexPath) {
         if !FavoriMoviesController.shared.bringTheAction(theMovie) {
             self.movies.remove(at: indexPath.row)
-            /*tableView.beginUpdates()
-             tableView.deleteRows(at: [indexPath], with: .automatic)
-             tableView.endUpdates()*/
         }
 
     }

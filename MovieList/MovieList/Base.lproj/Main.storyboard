@@ -240,31 +240,116 @@
                                 <rect key="frame" x="0.0" y="269" width="414" height="32"/>
                                 <segments>
                                     <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="KnownFor"/>
                                 </segments>
                                 <connections>
-                                    <action selector="didTabSegmentWithSegment:" destination="iH4-hv-6y8" eventType="valueChanged" id="eMO-nf-fYt"/>
+                                    <action selector="switchViews:" destination="iH4-hv-6y8" eventType="valueChanged" id="6o6-TT-t7p"/>
                                 </connections>
                             </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-Pg-Kis">
+                                <rect key="frame" x="0.0" y="300" width="414" height="562"/>
+                                <connections>
+                                    <segue destination="eqI-8F-Wfk" kind="embed" identifier="infoSeque" id="03d-53-0vR"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxJ-Ej-lFB">
+                                <rect key="frame" x="0.0" y="300" width="414" height="562"/>
+                                <connections>
+                                    <segue destination="s55-fi-K0B" kind="embed" identifier="knownForSeque" id="FrQ-cN-y5j"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Wvl-Pg-Kis" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="Aq7-B6-3BP"/>
+                            <constraint firstItem="Wvl-Pg-Kis" firstAttribute="top" secondItem="9BA-YG-nMR" secondAttribute="bottom" id="OWf-cV-EGN"/>
                             <constraint firstItem="Hla-tf-QDw" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="R8R-9D-3Db"/>
+                            <constraint firstItem="WxJ-Ej-lFB" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="S3n-T0-4f7"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="Wvl-Pg-Kis" secondAttribute="trailing" id="UBg-Nu-Z4F"/>
                             <constraint firstItem="9BA-YG-nMR" firstAttribute="leading" secondItem="bIC-MQ-BEc" secondAttribute="leading" id="WrN-XA-H9K"/>
                             <constraint firstItem="Hla-tf-QDw" firstAttribute="top" secondItem="bIC-MQ-BEc" secondAttribute="top" id="YXv-oK-eca"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="WxJ-Ej-lFB" secondAttribute="trailing" id="aQq-H1-m1T"/>
+                            <constraint firstItem="WxJ-Ej-lFB" firstAttribute="top" secondItem="9BA-YG-nMR" secondAttribute="bottom" id="dry-jJ-12x"/>
                             <constraint firstItem="9BA-YG-nMR" firstAttribute="top" secondItem="Hla-tf-QDw" secondAttribute="bottom" id="eAJ-VG-cxr"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="bottom" secondItem="WxJ-Ej-lFB" secondAttribute="bottom" id="eMJ-Gd-9KI"/>
                             <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="9BA-YG-nMR" secondAttribute="trailing" id="mQK-aO-g3F"/>
+                            <constraint firstItem="bIC-MQ-BEc" firstAttribute="bottom" secondItem="Wvl-Pg-Kis" secondAttribute="bottom" id="nYh-JV-59b"/>
                             <constraint firstItem="bIC-MQ-BEc" firstAttribute="trailing" secondItem="Hla-tf-QDw" secondAttribute="trailing" id="qni-KI-gEd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bIC-MQ-BEc"/>
                     </view>
                     <connections>
                         <outlet property="actorImage" destination="Hla-tf-QDw" id="Vm4-d4-pfJ"/>
+                        <outlet property="firstView" destination="Wvl-Pg-Kis" id="J4V-Yb-lLJ"/>
+                        <outlet property="secondView" destination="WxJ-Ej-lFB" id="Lds-2k-gNB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wy-vJ-34Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5747" y="2198"/>
+        </scene>
+        <!--Actor Info View Controller-->
+        <scene sceneID="oGy-dE-U5T">
+            <objects>
+                <viewController storyboardIdentifier="ActorInfoViewController" id="eqI-8F-Wfk" customClass="ActorInfoViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXm-Tw-Rk0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="562"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQN-nn-WYz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="20.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zj1-Gm-L6s" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VQN-nn-WYz" secondAttribute="bottom" id="SnV-HN-nZR"/>
+                            <constraint firstItem="VQN-nn-WYz" firstAttribute="top" secondItem="zj1-Gm-L6s" secondAttribute="top" id="Ugh-rN-Fzt"/>
+                            <constraint firstItem="VQN-nn-WYz" firstAttribute="leading" secondItem="zj1-Gm-L6s" secondAttribute="leading" id="ePN-eI-BK5"/>
+                            <constraint firstItem="zj1-Gm-L6s" firstAttribute="trailing" secondItem="VQN-nn-WYz" secondAttribute="trailing" id="k5b-e2-VFZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zj1-Gm-L6s"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="VQN-nn-WYz" id="UxQ-6I-yHX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUw-EQ-U9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5249" y="2965"/>
+        </scene>
+        <!--Actor Known For View Controller-->
+        <scene sceneID="v6g-Lf-JCO">
+            <objects>
+                <viewController storyboardIdentifier="ActorKnownForViewController" id="s55-fi-K0B" customClass="ActorKnownForViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oTp-w7-VuP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="562"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-is-TUc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="518"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="knp-ty-s3T" firstAttribute="bottom" secondItem="EaL-is-TUc" secondAttribute="bottom" id="KHF-0H-Lin"/>
+                            <constraint firstItem="knp-ty-s3T" firstAttribute="trailing" secondItem="EaL-is-TUc" secondAttribute="trailing" id="KoH-eZ-07A"/>
+                            <constraint firstItem="EaL-is-TUc" firstAttribute="leading" secondItem="knp-ty-s3T" secondAttribute="leading" id="ZWE-Zt-BwL"/>
+                            <constraint firstItem="EaL-is-TUc" firstAttribute="top" secondItem="knp-ty-s3T" secondAttribute="top" id="nDH-fm-48s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="knp-ty-s3T"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="EaL-is-TUc" id="iP9-s9-o3W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdT-CH-Aub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6523" y="2965"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="SLg-yq-GQ0">

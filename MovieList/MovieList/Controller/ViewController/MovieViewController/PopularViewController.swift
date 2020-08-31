@@ -162,9 +162,9 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title = "Popular Movies"
+        self.tableView.reloadData()
     }
     override func loadView() {
-
         super.loadView()
         self.loadMore()
     }
