@@ -77,6 +77,9 @@ class Network {
                     }
                 }
             }
+            else {
+                completion(.failure(ApıError.customError(message: "Data is not loaded")))
+            }
         }
         dataTask.resume()
     }

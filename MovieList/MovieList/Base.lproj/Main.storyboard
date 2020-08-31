@@ -629,7 +629,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="251" height="32"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="301" placeholderIntrinsicHeight="25" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-Tq-WtP">
-                                                                                <rect key="frame" x="7" y="0.0" width="244" height="32"/>
+                                                                                <rect key="frame" x="7" y="0.0" width="237" height="32"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="32" id="4iC-LB-Qop"/>
@@ -639,7 +639,7 @@
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="5Zw-Tq-WtP" firstAttribute="leading" secondItem="bkm-CQ-bTZ" secondAttribute="leading" constant="7" id="EdG-zs-V4b"/>
-                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Zw-Tq-WtP" secondAttribute="trailing" id="dZL-FG-moW"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Zw-Tq-WtP" secondAttribute="trailing" constant="7" id="dZL-FG-moW"/>
                                                                             <constraint firstAttribute="bottom" secondItem="5Zw-Tq-WtP" secondAttribute="bottom" id="de2-Yi-S4C"/>
                                                                             <constraint firstItem="5Zw-Tq-WtP" firstAttribute="top" secondItem="bkm-CQ-bTZ" secondAttribute="top" id="hGb-UB-LFI"/>
                                                                         </constraints>

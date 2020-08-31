@@ -61,6 +61,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
+        self.searching = true
         self.selectMovies = []
 
         if searchText == "" {
@@ -108,8 +109,11 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         if indexPath.row == (self.movies.count - 3) {
-            self.pageNo += 1
-            self.searching = true
+            
+            if !searching , !loading{
+                 self.pageNo += 1
+                self.loadMore()
+            }
         }
     }
 
@@ -127,21 +131,15 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.movies.append(contentsOf: popularMoviesResults.results ?? [])
                     self.loading = false
                 case .failure(let error):
-                    // Create new Alert
-                    print(error)
-                    let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
-                    // Create OK button with action handler
+                    let dialogMessage = UIAlertController(title: "Error!!!", message: error.errorMessage, preferredStyle: .alert)
                     let okey = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
                          _ = self.navigationController?.popViewController(animated: true)
                     })
-                    // Create Cancel button with action handlder
                     let cancel = UIAlertAction(title: "Re-try", style: .cancel) { (_) -> Void in
                         self.loadMore()
                     }
-                    //Add OK and Cancel button to an Alert object
                     dialogMessage.addAction(okey)
                     dialogMessage.addAction(cancel)
-                    // Present alert message to user
                     self.present(dialogMessage, animated: true, completion: nil)
                 }
 
@@ -150,16 +148,7 @@ class PopularViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
 
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        if (offsetY > contentHeight - scrollView.frame.height), searching {
-            if !loading {
-                self.loadMore()
-            }
-        }
 
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title = "Popular Movies"

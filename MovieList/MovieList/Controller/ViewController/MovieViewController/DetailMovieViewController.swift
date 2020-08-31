@@ -127,9 +127,9 @@ class DetailMovieViewController: UIViewController {
                                    self.details = allTheDetails
 
                            case .failure(let error):
-                            print(error)
+                         
                                self.indicator.startAnimating()
-                               let dialogMessage = UIAlertController(title: "Error!!!", message: "The system does not response. What do you want to retry?", preferredStyle: .alert)
+                               let dialogMessage = UIAlertController(title: "Error!!!", message: error.errorMessage, preferredStyle: .alert)
                                // Create OK button with action handler
                                let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) -> Void in
                                 _ = self.navigationController?.popViewController(animated: true)
